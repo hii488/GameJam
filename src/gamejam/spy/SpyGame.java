@@ -3,7 +3,9 @@ package gamejam.spy;
 import gamejam.spy.controllers.KeyInput;
 import gamejam.spy.controllers.MouseInput;
 import gamejam.spy.gameObjects.Level;
+import gamejam.spy.gameObjects.entities.Player;
 import gamejam.spy.gameObjects.menus.MainMenu;
+import gamejam.spy.gameObjects.tiles.Tile;
 import gamejam.spy.graphics.Window;
 
 public class SpyGame {
@@ -23,6 +25,12 @@ public class SpyGame {
 		loadedLevel = new MainMenu();
 		
 		gameLoop(window);
+	}
+	
+	public void init() {
+		Level l = new Level();
+		l.addEntity(new Player());
+		l.addTile(new Tile(), new Vector(2, 2));
 	}
 	
 	public static void gameLoop(Window w) {

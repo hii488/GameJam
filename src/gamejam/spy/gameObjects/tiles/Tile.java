@@ -37,6 +37,10 @@ public class Tile implements Renderable, Textured {
 		lamina.addY(position.getY() * parentGrid.tileSize);
 	}
 	
+	public Lamina2D getLamina() {
+		return this.lamina;
+	}
+	
 	public void tick() {
 		
 	}

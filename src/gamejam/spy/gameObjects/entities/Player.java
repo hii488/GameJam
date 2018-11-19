@@ -1,10 +1,10 @@
 package gamejam.spy.gameObjects.entities;
 
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-
 import gamejam.spy.SpyGame;
+import gamejam.spy.controllers.MouseInput;
 import gamejam.spy.gameObjects.collision.Lamina2D;
 import gamejam.spy.gameObjects.collision.Vertex;
 import gamejam.spy.gameObjects.tiles.Tile;
@@ -31,8 +31,28 @@ public class Player extends Entity {
 		this.setTextureKey(textures[0]);
 	}
 	
+	public void moveX(double x) {
+		lamina.addX(x);
+	}
+	
+	public void moveY(double y) {
+		lamina.addY(y);
+	}
+	
 	public void tick() {
 		super.tick();
+		if (MouseInput.isDown(KeyEvent.VK_D)) {
+			moveX(10);
+		}
+		if (MouseInput.isDown(KeyEvent.VK_A)) {
+			moveX(-10);
+		}
+		if (MouseInput.isDown(KeyEvent.VK_W)) {
+			moveY(-10);
+		}
+		if (MouseInput.isDown(KeyEvent.VK_S)) {
+			moveY(10);
+		}
 		Collection<Tile> tiles = SpyGame.loadedLevel.tileGrid.grid.values();
 		for (Tile t : tiles) {
 			lamina.resolvePen(t.getLamina());
