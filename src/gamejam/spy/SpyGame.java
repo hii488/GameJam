@@ -25,13 +25,30 @@ public class SpyGame {
 		debug = false;
 		
 		loadedLevel = new MainMenu();
+		loadTextures();
 		init();
 		
 		gameLoop(window);
 	}
 	
-	public static void init() {
+	public static void loadTextures() {
 		TextureMap.loadTexture("resources/textures/Player.png", "player");
+		TextureMap.loadTexture("resources/textures/PlayerRunning1.png", "playerRunning1");
+		TextureMap.loadTexture("resources/textures/PlayerRunning2.png", "playerRunning2");
+		TextureMap.loadTexture("resources/textures/PlayerRunning3.png", "playerRunning3");
+		TextureMap.loadTexture("resources/textures/PlayerRunning4.png", "playerRunning4");
+		TextureMap.loadTexture("resources/textures/PlayerRunning5.png", "playerRunning5");
+		TextureMap.loadTexture("resources/textures/PlayerRunning6.png", "playerRunning6");
+		TextureMap.loadTexture("resources/textures/PlayerRunning7.png", "playerRunning7");
+		TextureMap.loadTexture("resources/textures/slime.png", "slime");
+		TextureMap.loadTexture("resources/textures/ice.png", "ice");
+		TextureMap.loadTexture("resources/textures/camera-green.png", "cameraGreen");
+		TextureMap.loadTexture("resources/textures/camera-red.png", "cameraRed");
+		TextureMap.loadTexture("resources/textures/industrial.v2.png", "industrial");
+		TextureMap.loadTexture("resources/textures/skill-desc_0003_bg-1.png", "background1");
+	}
+	
+	public static void init() {
 		
 		Level l = new Level();
 		l.addEntity(new Player());
@@ -70,7 +87,7 @@ public class SpyGame {
 			now = System.nanoTime();
 			unprocessed += (now - then) / nsPerTick;
 			then = now;
-			if (unprocessed >= 1) {
+			while (unprocessed >= 1) {
 				if(!paused) tick();
 				
 				tick++;
