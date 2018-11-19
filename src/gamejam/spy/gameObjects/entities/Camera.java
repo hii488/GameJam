@@ -61,25 +61,25 @@ public class Camera extends Entity {
 			break;
 		}
 		
-		direction ++;
-		
 		facing = new Vector(-1,1).scale(dist).rotateDeg(direction);
 		upper = facing.copy().rotateDeg(width);
 		lower = facing.copy().rotateDeg(-width);
 		
-		Vector playerDirection = SpyGame.loadedLevel.entities.get(0).position.difference(position);
+		Vector playerDirection1 = SpyGame.loadedLevel.entities.get(0).position.difference(position);
+		Vector playerDirection2 = SpyGame.loadedLevel.entities.get(0).position.copy().translate(20, 30).difference(position); // Other corner
 		
 		double upperAngle = Math.atan(upper.getY()/upper.getX()) + (upper.getIX() <= 0 ? Math.PI : 0);
 		double lowerAngle = Math.atan(lower.getY()/lower.getX()) + (lower.getIX() <= 0 ? Math.PI : 0);
-		double playerAngle = Math.atan(playerDirection.getY()/playerDirection.getX()) + (playerDirection.getIX() <= 0 ? Math.PI : 0);
+		double playerAngle1 = Math.atan(playerDirection1.getY()/playerDirection1.getX()) + (playerDirection1.getIX() <= 0 ? Math.PI : 0);
+		double playerAngle2 = Math.atan(playerDirection2.getY()/playerDirection2.getX()) + (playerDirection2.getIX() <= 0 ? Math.PI : 0);
 		
-		if(playerAngle < upperAngle && playerAngle > lowerAngle && playerDirection.magnitude() < dist) {
-			System.out.println("In camera");
-		}
+		if     (playerAngle1 < upperAngle && playerAngle1 > lowerAngle && playerDirection1.magnitude() < dist) caught();
+		else if(playerAngle2 < upperAngle && playerAngle2 > lowerAngle && playerDirection2.magnitude() < dist) caught();
 	}
 	
 	public void caught() {
-		// Restart the level.
+		// TODO: Restart the level.
+		System.out.println("Seen!");
 	}
 	
 	
