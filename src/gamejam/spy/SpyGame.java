@@ -14,7 +14,6 @@ public class SpyGame {
 		debug = false;
 		
 		gameLoop(w);
-		
 	}
 	
 	public static void gameLoop(Window w) {
