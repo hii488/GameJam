@@ -1,5 +1,7 @@
 package gamejam.spy;
 
+import gamejam.spy.controllers.KeyInput;
+import gamejam.spy.controllers.MouseInput;
 import gamejam.spy.gameObjects.Level;
 import gamejam.spy.graphics.Window;
 
@@ -61,11 +63,13 @@ public class SpyGame {
 	}
 	
 	public static void tick() {
-		System.out.println("tick");
+		KeyInput.update();
+		MouseInput.update();
+		loadedLevel.tick();
 	}
 	
 	public static void render(Window w) {
-		System.out.println("render");
+		w.render();
 	}
 	
 }

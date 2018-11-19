@@ -16,12 +16,17 @@ public class Tile implements Renderable {
 	}
 	
 	public void setGridPosition(Vector position) {
-		gridPosition = position.getLocation();
+		gridPosition = position.copy();
 	}
 	
 	@Override
 	public void render(Graphics g) {
 		
+	}
+
+	public Object tick() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -12,4 +12,9 @@ public class Entity implements Renderable {
 		
 	}
 
+	public Object tick() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
