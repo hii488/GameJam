@@ -41,6 +41,7 @@ public class Window {
 		this.display = new Display(this);
 		display.addKeyListener(new KeyInput());
 		display.addMouseListener(new MouseInput());
+		display.addMouseMotionListener(new MouseInput());
 		this.frame.add(this.display);
 	}
 	

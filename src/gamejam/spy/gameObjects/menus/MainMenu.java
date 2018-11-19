@@ -12,6 +12,8 @@ public class MainMenu extends Level {
 	public MainMenu() {
 		super();
 		
+		this.canPause = false;
+		
 		System.out.println("in main menu");
 		
 		ButtonEntity start = new ButtonEntity() {

@@ -25,9 +25,7 @@ public class ButtonEntity extends Entity{
 	public void tick() {
 		if(MouseInput.wasReleased(MouseEvent.BUTTON1)) {
 			Vector mouse = new Vector(MouseInput.getX()-position.getX(), MouseInput.getY() - position.getY());
-			System.out.println(mouse.toString() + "::" + MouseInput.getX() + ", " + MouseInput.getY());
 			if((mouse.getIX() >= 0 && mouse.getIX() <= dimensions.getIX()) && (mouse.getIY() >= 0 && mouse.getIY() <= dimensions.getIY())) {
-				System.out.println("onclick2");
 				onClick();
 			}
 		}
