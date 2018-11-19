@@ -25,24 +25,49 @@ public class SpyGame {
 		debug = false;
 		
 		loadedLevel = new MainMenu();
+		loadTextures();
 		init();
 		
 		gameLoop(window);
 	}
 	
-	public static void init() {
+	public static void loadTextures() {
 		TextureMap.loadTexture("resources/textures/Player.png", "player");
+		TextureMap.loadTexture("resources/textures/PlayerRunning1.png", "playerRunning1");
+		TextureMap.loadTexture("resources/textures/PlayerRunning2.png", "playerRunning2");
+		TextureMap.loadTexture("resources/textures/PlayerRunning3.png", "playerRunning3");
+		TextureMap.loadTexture("resources/textures/PlayerRunning4.png", "playerRunning4");
+		TextureMap.loadTexture("resources/textures/PlayerRunning5.png", "playerRunning5");
+		TextureMap.loadTexture("resources/textures/PlayerRunning6.png", "playerRunning6");
+		TextureMap.loadTexture("resources/textures/PlayerRunning7.png", "playerRunning7");
+		TextureMap.loadTexture("resources/textures/slime.png", "slime");
+		TextureMap.loadTexture("resources/textures/ice.png", "ice");
+		TextureMap.loadTexture("resources/textures/camera-green.png", "cameraGreen");
+		TextureMap.loadTexture("resources/textures/camera-red.png", "cameraRed");
+		TextureMap.loadTexture("resources/textures/industrial.v2.png", "industrial");
+		TextureMap.loadTexture("resources/textures/skill-desc_0003_bg-1.png", "background1");
+	}
+	
+	public static void init() {
 		
 		Level l = new Level();
 		l.addEntity(new Player());
 		
-	//	Tile t = new Tile();
-	//	t.setTextureKey("tempTestImage.png");
+		for (int i = 0; i < 40; i ++) {
+			l.addTile(new Tile(), new Vector(i, 20));
+		}
 		
-	//	TriangleTile t2 = new TriangleTile(0);
+		for (int i = 0; i < 5; i ++) {
+			l.addTile(new TriangleTile(3), new Vector(40 + i, 20 + i));
+		}
 		
-	//	l.addTile(new Tile(), new Vector(2, 2));
-	//	l.addTile(t2, new Vector(2,3));
+		for (int i = 0; i < 5; i ++) {
+			l.addTile(new TriangleTile(0), new Vector(45 + i, 18 - i));
+		}
+		
+		for (int i = 0; i < 10; i ++) {
+			l.addTile(new Tile(), new Vector(50 + i, 14));
+		}
 		
 		loadedLevel = l;
 	}
@@ -62,7 +87,7 @@ public class SpyGame {
 			now = System.nanoTime();
 			unprocessed += (now - then) / nsPerTick;
 			then = now;
-			if (unprocessed >= 1) {
+			while (unprocessed >= 1) {
 				if(!paused) tick();
 				
 				tick++;

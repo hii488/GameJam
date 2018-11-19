@@ -24,10 +24,11 @@ public class Tile implements Renderable, Textured {
 
 
 		ArrayList<Vertex> vertices = new ArrayList<>();
-		vertices.add(new Vertex(parentGrid.tileSize, 0));
-		vertices.add(new Vertex(0, 0));
 		vertices.add(new Vertex(0, parentGrid.tileSize));
 		vertices.add(new Vertex(parentGrid.tileSize, parentGrid.tileSize));
+		vertices.add(new Vertex(parentGrid.tileSize, 0));
+		vertices.add(new Vertex(0, 0));
+
 		lamina = new Lamina2D(vertices, true);
 		lamina.addX(gridPosition.getX() * parentGrid.tileSize);
 		lamina.addY(gridPosition.getY() * parentGrid.tileSize);

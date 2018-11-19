@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import gamejam.spy.SpyGame;
+import gamejam.spy.Vector;
 import gamejam.spy.controllers.KeyInput;
 import gamejam.spy.controllers.MouseInput;
 import gamejam.spy.gameObjects.collision.Lamina2D;
@@ -18,15 +19,17 @@ public class Player extends Entity {
 	private Vertex pos;
 	private Lamina2D lamina;
 	
+	private double yv = 0;
+	
 	public Player() {
 		super();
 		ArrayList<Vertex> vertices = new ArrayList<>();
 		pos = new Vertex(0, 0);
 		
-		vertices.add(new Vertex(32, 0));
+		vertices.add(new Vertex(22, 0));
 		vertices.add(pos);
 		vertices.add(new Vertex(0, 64));
-		vertices.add(new Vertex(32, 64));
+		vertices.add(new Vertex(22, 64));
 		
 		lamina = new Lamina2D(vertices, false);
 		
@@ -44,22 +47,24 @@ public class Player extends Entity {
 	public void tick() {
 		super.tick();
 		if (KeyInput.isDown(KeyEvent.VK_D)) {
-			moveX(10);
+			moveX(5);
 		}
 		if (KeyInput.isDown(KeyEvent.VK_A)) {
-			moveX(-10);
+			moveX(-5);
 		}
-		if (KeyInput.isDown(KeyEvent.VK_W)) {
-			moveY(-10);
+		if (KeyInput.isDown(KeyEvent.VK_W) && yv == 0) {
+			this.yv = 10;
 		}
-		if (KeyInput.isDown(KeyEvent.VK_S)) {
-			moveY(10);
-		}
+		yv -= 0.9;
+		moveY(-yv);
 		Collection<Tile> tiles = SpyGame.loadedLevel.tileGrid.grid.values();
 		for (Tile t : tiles) {
 			lamina.resolvePen(t.getLamina());
+			if (lamina.isTouching(t.getLamina())) {
+				yv = 0;
+			}
 		}
-		position.setLocation(pos.getX(), pos.getY());
+		position.setLocation(pos.getX()-4, pos.getY());
 		
 	}
 	

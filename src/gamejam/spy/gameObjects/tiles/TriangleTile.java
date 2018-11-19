@@ -21,21 +21,25 @@ public class TriangleTile extends Tile implements Renderable, Textured {
 
 		ArrayList<Vertex> vertices = new ArrayList<>();
 		if (orientation == 0) {
-			vertices.add(new Vertex(parentGrid.tileSize, 0)); //Slope pos gradient
-			vertices.add(new Vertex(0, parentGrid.tileSize));
 			vertices.add(new Vertex(parentGrid.tileSize, parentGrid.tileSize));
+			vertices.add(new Vertex(0, parentGrid.tileSize));
+			vertices.add(new Vertex(parentGrid.tileSize, 0)); //Slope pos gradient
+			
 		} else if (orientation == 1) { //Each one rotated by 90deg anti clock
 			vertices.add(new Vertex(parentGrid.tileSize, 0)); 
 			vertices.add(new Vertex(0, 0));
 			vertices.add(new Vertex(parentGrid.tileSize, parentGrid.tileSize));
-		} else if (orientation == 3) {
+		} else if (orientation == 2) {
 			vertices.add(new Vertex(parentGrid.tileSize, 0)); 
 			vertices.add(new Vertex(0, 0));
 			vertices.add(new Vertex(0, parentGrid.tileSize));
-		} else {	 
-			vertices.add(new Vertex(0, 0));
+		} else {
 			vertices.add(new Vertex(0, parentGrid.tileSize));
+			vertices.add(new Vertex(0, 0));
 			vertices.add(new Vertex(parentGrid.tileSize, parentGrid.tileSize));
+
+
+
 		}
 		lamina = new Lamina2D(vertices, true);
 		lamina.addX(gridPosition.getX() * parentGrid.tileSize);
