@@ -11,19 +11,17 @@ public class PauseOverlay {
 	
 	public static void createOverlay() {
 		continueButton = new ButtonEntity() {
-			Level l;
-			
-			public void setLevel(Level lev) {
-				l = lev;
-			}
-			
 			public void onClick() {
 				SpyGame.paused = false;
+				SpyGame.loadedLevel.entities.remove(this);
+				SpyGame.loadedLevel.entities.remove(quitButton);
 			}
 		};
 		
 		quitButton = new ButtonEntity() {
-			
+			public void onClick() {
+				System.exit(0);
+			}
 		};
 	}
 	
