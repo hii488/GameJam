@@ -25,6 +25,7 @@ public class Player extends Entity {
 	private int counter = 0;
 	private int currentTex = 0;
 	
+	
 	private double yv = 0;
 	
 	boolean isRight = true;
