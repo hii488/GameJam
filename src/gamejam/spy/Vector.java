@@ -1,7 +1,5 @@
 package gamejam.spy;
 
-import java.awt.Rectangle;
-
 public class Vector {
 	public final static Vector ORIGIN = new Vector(0,0);
 	

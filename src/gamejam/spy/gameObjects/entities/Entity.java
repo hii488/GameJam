@@ -8,14 +8,18 @@ import gamejam.spy.interfaces.Textured;
 
 public class Entity implements Renderable, Textured {
 	
-	public Vector gridPosition;
-	public String textureKey;
+	public Vector position = new Vector(0,0);
+	public String textureKey = "";
 	
 	@Override
 	public void render(Graphics g) {}
 
 	public void tick() {}
 
+	public void setPosition(int x, int y) {
+		position.setLocation(x,y);
+	}
+	
 	public void setTextureKey(String key) {
 		textureKey = key;
 	}
