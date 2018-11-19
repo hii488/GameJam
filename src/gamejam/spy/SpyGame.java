@@ -4,6 +4,7 @@ import gamejam.spy.controllers.KeyInput;
 import gamejam.spy.controllers.MouseInput;
 import gamejam.spy.controllers.TextureMap;
 import gamejam.spy.gameObjects.Level;
+import gamejam.spy.gameObjects.entities.Camera;
 import gamejam.spy.gameObjects.entities.Player;
 import gamejam.spy.gameObjects.menus.MainMenu;
 import gamejam.spy.gameObjects.tiles.Tile;
@@ -68,6 +69,10 @@ public class SpyGame {
 		for (int i = 0; i < 10; i ++) {
 			l.addTile(new Tile(), new Vector(50 + i, 14));
 		}
+		
+		Camera c = new Camera();
+		c.position = new Vector(40, 50);
+		l.addEntity(c);
 		
 		loadedLevel = l;
 	}

@@ -1,6 +1,5 @@
 package gamejam.spy.controllers;
 
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,13 +9,13 @@ import javax.imageio.ImageIO;
 
 public class TextureMap {
 	
-	public static HashMap<String, Image> map = new HashMap<String, Image>();
+	public static HashMap<String, BufferedImage> map = new HashMap<String, BufferedImage>();
 	
 	static {
 	//	loadTexture("textures/error.png", "errorImage");
 	}
 	
-	public static Image getTexture(String key) {
+	public static BufferedImage getTexture(String key) {
 		return map.containsKey(key) ? map.get(key) : map.get("errorImage");
 	}
 	
