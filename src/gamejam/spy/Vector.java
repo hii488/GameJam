@@ -110,7 +110,7 @@ public class Vector {
 	/** Essentially a clone method.
 	 *  
 	 *  @return a copy of this vector. */
-	public Vector getLocation() {
+	public Vector copy() {
 		return new Vector(x, y);
 	}
 	
@@ -120,15 +120,6 @@ public class Vector {
 	
 	public Vector negated() {
 		return new Vector(-x,-y);
-	}
-	
-	public static Rectangle convertToRectangle(Vector a, Vector b){
-		double x1 = a.x < b.x ? a.x : b.x, x2 = a.x > b.x ? a.x : b.x;
-		double y1 = a.y < b.y ? a.y : b.y, y2 = a.y > b.y ? a.y : b.y;
-		if(x2 - x1 == 0) x2 += 1;
-		if(y2 - y1 == 0) y2 += 1;
-		
-		return new Rectangle((int) x1, (int) y1, (int) (x2-x1), (int) (y2-y1));
 	}
 
 	public Vector scale(double d) {
@@ -154,18 +145,18 @@ public class Vector {
 	}
 
 	//New methods:
-	public Vector rightNormal(Vector v){
-	    Vector rotated = new Vector(v.getY(), -v.getX());
+	public Vector rightNormal(){
+	    Vector rotated = new Vector(y, -x);
 	    return rotated;
 	}
 	public Vector leftNormal(Vector v){
-	    Vector rotated = new Vector(-v.getY(), v.getX());
+	    Vector rotated = new Vector(-y, x);
 	    return rotated;
 	}
-	double dotV2D(Vector v1, Vector v2) {
-	    return (v1.getX() * v2.getX()) + (v1.getY() * v2.getY());
+	double dotV2D(Vector v2) {
+	    return (x * v2.getX()) + (x * v2.getY());
 	}
-	double crossV2D(Vector v1, Vector v2) {
-	    return (v1.getX() * v2.getY()) - (v2.getX() * v1.getY());
+	double crossV2D(Vector v2) {
+	    return (x * v2.getY()) - (v2.getX() * y);
 	}
 }
