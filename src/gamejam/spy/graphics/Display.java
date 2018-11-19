@@ -3,6 +3,8 @@ package gamejam.spy.graphics;
 import java.awt.Canvas;
 import java.awt.Graphics;
 
+import gamejam.spy.SpyGame;
+
 @SuppressWarnings("serial")
 public class Display extends Canvas{
 
@@ -14,7 +16,7 @@ public class Display extends Canvas{
 	//	g.setColor(Settings.Texture.background);
 	//	g.fillRect(0, 0, getWidth(), getHeight());
 		try{
-	//		ContainerHandler.getRenderContainer().render(g);
+			SpyGame.loadedLevel.render(g);
 		}
 		catch(Exception e){
 			System.err.println("Error rendering");

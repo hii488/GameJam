@@ -1,10 +1,12 @@
 package gamejam.spy;
 
+import gamejam.spy.gameObjects.Level;
 import gamejam.spy.graphics.Window;
 
 public class SpyGame {
 	
 	public static boolean running, paused, debug;
+	public static Level loadedLevel;
 	
 	public static void main(String[] args) {
 		Window w = new Window("Spy Game", 1000, 800);

@@ -6,6 +6,8 @@ import java.awt.image.BufferStrategy;
 
 import javax.swing.JFrame;
 
+import gamejam.spy.controllers.InputDistributer;
+
 public class Window {
 
 	// Actual window
@@ -36,8 +38,8 @@ public class Window {
 	
 	public void createDisplay(){
 		this.display = new Display(this);
-	//	display.addKeyListener(InputHandler.instance);
-	//	display.addMouseListener(InputHandler.instance);
+		display.addKeyListener(InputDistributer.instance);
+		display.addMouseListener(InputDistributer.instance);
 		this.frame.add(this.display);
 	}
 	

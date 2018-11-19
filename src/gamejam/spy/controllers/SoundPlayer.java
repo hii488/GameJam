@@ -1,4 +1,4 @@
-package gamejam.spy;
+package gamejam.spy.controllers;
 
 import java.io.FileInputStream;
 import java.io.IOException;

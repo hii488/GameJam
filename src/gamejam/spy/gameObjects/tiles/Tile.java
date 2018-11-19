@@ -21,7 +21,6 @@ public class Tile implements Renderable {
 	
 	@Override
 	public void render(Graphics g) {
-		// TODO Auto-generated method stub
 		
 	}
 
