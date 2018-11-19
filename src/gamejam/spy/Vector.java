@@ -152,4 +152,20 @@ public class Vector {
 	public int hashCode() {
 		return (int) (x*61 + y*163);
 	}
+
+	//New methods:
+	public Vector rightNormal(Vector v){
+	    Vector rotated = new Vector(v.getY(), -v.getX());
+	    return rotated;
+	}
+	public Vector leftNormal(Vector v){
+	    Vector rotated = new Vector(-v.getY(), v.getX());
+	    return rotated;
+	}
+	double dotV2D(Vector v1, Vector v2) {
+	    return (v1.getX() * v2.getX()) + (v1.getY() * v2.getY());
+	}
+	double crossV2D(Vector v1, Vector v2) {
+	    return (v1.getX() * v2.getY()) - (v2.getX() * v1.getY());
+	}
 }
