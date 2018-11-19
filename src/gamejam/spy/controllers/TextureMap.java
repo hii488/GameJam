@@ -2,6 +2,7 @@ package gamejam.spy.controllers;
 
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -12,11 +13,7 @@ public class TextureMap {
 	public static HashMap<String, Image> map = new HashMap<String, Image>();
 	
 	static {
-		loadTexture("textures/error.png", "errorImage");
-	}
-	
-	public static void addTexture(String key, Image texture) {
-		map.put(key, texture);
+	//	loadTexture("textures/error.png", "errorImage");
 	}
 	
 	public static Image getTexture(String key) {
@@ -25,7 +22,7 @@ public class TextureMap {
 	
 	public static void loadTexture(String path, String key) {
 		try {
-			BufferedImage i = ImageIO.read(TextureMap.class.getClassLoader().getResourceAsStream(path));
+			BufferedImage i = ImageIO.read(new FileInputStream(path));
 			map.put(key, i);
 		} catch (IOException e) {
 			System.out.println("Failed to load image: " + path + " :: " + key);

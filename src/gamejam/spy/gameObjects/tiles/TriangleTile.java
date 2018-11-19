@@ -10,12 +10,8 @@ import gamejam.spy.gameObjects.collision.Vertex;
 import gamejam.spy.interfaces.Renderable;
 import gamejam.spy.interfaces.Textured;
 
-public class TriangleTile implements Renderable, Textured {
+public class TriangleTile extends Tile implements Renderable, Textured {
 	
-	public Vector gridPosition;
-	public Grid parentGrid;
-	public String textureKey;
-	public Lamina2D lamina;
 	private int orientation;
 	public TriangleTile (int orientation) {
 		this.orientation = orientation;
@@ -23,11 +19,6 @@ public class TriangleTile implements Renderable, Textured {
 	public void setGrid(Grid g) {
 		parentGrid = g;
 
-		
-	}
-	
-	public void setGridPosition(Vector position) {
-		gridPosition = position.copy();
 		ArrayList<Vertex> vertices = new ArrayList<>();
 		if (orientation == 0) {
 			vertices.add(new Vertex(parentGrid.tileSize, 0)); //Slope pos gradient
@@ -47,16 +38,15 @@ public class TriangleTile implements Renderable, Textured {
 			vertices.add(new Vertex(parentGrid.tileSize, parentGrid.tileSize));
 		}
 		lamina = new Lamina2D(vertices, true);
-		lamina.addX(position.getX() * parentGrid.tileSize);
-		lamina.addY(position.getY() * parentGrid.tileSize);
+		lamina.addX(gridPosition.getX() * parentGrid.tileSize);
+		lamina.addY(gridPosition.getY() * parentGrid.tileSize);
+	}
+	
+	public void setGridPosition(Vector position) {
+		gridPosition = position.copy();
 	}
 	
 	public void tick() {
-		
-	}
-	
-	@Override
-	public void render(Graphics g) {
 		
 	}
 

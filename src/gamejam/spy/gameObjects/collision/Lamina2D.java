@@ -136,7 +136,7 @@ public class Lamina2D {
 		addY(d.getY());
 	}
 	
-	private Polygon getPolygon(){
+	public Polygon getPolygon(){
 		int[] xPoints = new int[vertices.size()];
 		int[] yPoints = new int[vertices.size()];
 		for (int i=0 ; i < vertices.size(); i++) {
