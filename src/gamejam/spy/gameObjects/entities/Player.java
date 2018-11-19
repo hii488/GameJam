@@ -55,7 +55,7 @@ public class Player extends Entity {
 	
 	public void tick() {
 		super.tick();
-		if (KeyInput.isDown(KeyEvent.VK_D)) {
+		if (KeyInput.isDown(KeyEvent.VK_D) || KeyInput.isDown(KeyEvent.VK_RIGHT)) {
 			isRight = true;
 			moveX(5);
 			if (counter > 3) {
@@ -64,7 +64,7 @@ public class Player extends Entity {
 				currentTex = (currentTex + 1) % textures.length;
 			}
 		} 
-		else if (KeyInput.isDown(KeyEvent.VK_A)) {
+		else if (KeyInput.isDown(KeyEvent.VK_A) || KeyInput.isDown(KeyEvent.VK_LEFT)) {
 			isRight = false;
 			moveX(-5);
 			if (counter > 3) {
@@ -78,7 +78,7 @@ public class Player extends Entity {
 			counter = 0;
 			currentTex = 0;
 		}
-		if (KeyInput.isDown(KeyEvent.VK_W) && yv == 0) {
+		if ((KeyInput.isDown(KeyEvent.VK_W)  || KeyInput.isDown(KeyEvent.VK_UP))&& yv == 0) {
 			this.yv = 10;
 		}
 		yv -= 0.9;
