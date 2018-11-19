@@ -1,7 +1,6 @@
 package gamejam.spy.gameObjects.entities;
 
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
@@ -58,8 +57,8 @@ public class Player extends Entity {
 		if (KeyInput.isDown(KeyEvent.VK_D)) {
 			isRight = true;
 			moveX(5);
+			this.setTextureKey(textures[currentTex]);
 			if (counter > 3) {
-				this.setTextureKey(textures[currentTex]);
 				counter -= 3;
 				currentTex = (currentTex + 1) % textures.length;
 			}
@@ -67,11 +66,10 @@ public class Player extends Entity {
 		else if (KeyInput.isDown(KeyEvent.VK_A)) {
 			isRight = false;
 			moveX(-5);
+			this.setTextureKey(textures[currentTex]);
 			if (counter > 3) {
-				this.setTextureKey(textures[currentTex]);
 				counter -= 3;
 				currentTex = (currentTex + 1) % textures.length;
-				System.out.println(currentTex);
 			}
 		} else {
 			this.setTextureKey(idle);
