@@ -39,6 +39,7 @@ public class SpyGame {
 				tick++;
 				unprocessed--;
 			}
+			
 			// Might be best to move this into the tick thing, so that it only happens on tick.
 			render(w);
 			
