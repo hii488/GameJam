@@ -78,7 +78,7 @@ public class Player extends Entity {
 			counter = 0;
 			currentTex = 0;
 		}
-		if ((KeyInput.isDown(KeyEvent.VK_W)  || KeyInput.isDown(KeyEvent.VK_DOWN))&& yv == 0) {
+		if ((KeyInput.isDown(KeyEvent.VK_W)  || KeyInput.isDown(KeyEvent.VK_UP))&& yv == 0) {
 			this.yv = 10;
 		}
 		yv -= 0.9;
