@@ -7,6 +7,7 @@ import gamejam.spy.gameObjects.tiles.Tile;
 
 public class Grid {
 	public HashMap<Vector, Tile> grid = new HashMap<Vector, Tile>();
+	public int tileSize;
 	
 	public void addTile(Tile t) {
 		t.setGrid(this);

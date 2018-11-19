@@ -1,21 +1,28 @@
 package gamejam.spy;
 
+import gamejam.spy.controllers.KeyInput;
+import gamejam.spy.controllers.MouseInput;
 import gamejam.spy.gameObjects.Level;
+import gamejam.spy.gameObjects.menus.MainMenu;
 import gamejam.spy.graphics.Window;
 
 public class SpyGame {
 	
 	public static boolean running, paused, debug;
 	public static Level loadedLevel;
+	public static Window window;
 	
 	public static void main(String[] args) {
-		Window w = new Window("Spy Game", 1000, 800);
+		window = new Window("Spy Game", 1000, 800);
+		window.createDisplay();
 		
 		running = true;
 		paused = false;
 		debug = false;
 		
-		gameLoop(w);
+		loadedLevel = new MainMenu();
+		
+		gameLoop(window);
 	}
 	
 	public static void gameLoop(Window w) {
@@ -61,11 +68,13 @@ public class SpyGame {
 	}
 	
 	public static void tick() {
-		System.out.println("tick");
+		loadedLevel.tick();
+		KeyInput.update();
+		MouseInput.update();
 	}
 	
 	public static void render(Window w) {
-		System.out.println("render");
+		w.render();
 	}
 	
 }

@@ -7,7 +7,7 @@ import gamejam.spy.SpyGame;
 
 @SuppressWarnings("serial")
 public class Display extends Canvas{
-
+	
 	public Display(Window window) {
 		setBounds(0, 0, window.width, window.height);
 	}
