@@ -22,19 +22,23 @@ public class Tile implements Renderable, Textured {
 	public void setGrid(Grid g) {
 		parentGrid = g;
 
-		
+
+		ArrayList<Vertex> vertices = new ArrayList<>();
+		vertices.add(new Vertex(parentGrid.tileSize, 0));
+		vertices.add(new Vertex(0, 0));
+		vertices.add(new Vertex(0, parentGrid.tileSize));
+		vertices.add(new Vertex(parentGrid.tileSize, parentGrid.tileSize));
+		lamina = new Lamina2D(vertices, true);
+		lamina.addX(gridPosition.getX() * parentGrid.tileSize);
+		lamina.addY(gridPosition.getY() * parentGrid.tileSize);
 	}
 	
 	public void setGridPosition(Vector position) {
 		gridPosition = position.copy();
-		ArrayList<Vertex> vertices = new ArrayList<>();
-		vertices.add(new Vertex(parentGrid.tileSize, 0));
-		vertices.add(new Vertex(0, 0));
-		vertices.add(new Vertex(parentGrid.tileSize, parentGrid.tileSize));
-		vertices.add(new Vertex(0, parentGrid.tileSize));
-		lamina = new Lamina2D(vertices, true);
-		lamina.addX(position.getX() * parentGrid.tileSize);
-		lamina.addY(position.getY() * parentGrid.tileSize);
+	}
+	
+	public Lamina2D getLamina() {
+		return this.lamina;
 	}
 	
 	public void tick() {
@@ -43,7 +47,7 @@ public class Tile implements Renderable, Textured {
 	
 	@Override
 	public void render(Graphics g) {
-		
+		g.drawPolygon(lamina.getPolygon());
 	}
 
 	public void setTextureKey(String key) {

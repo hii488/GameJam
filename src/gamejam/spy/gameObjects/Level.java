@@ -21,6 +21,7 @@ public class Level implements Renderable, Textured {
 	
 	public Level() {
 		tileGrid = new Grid();
+		tileGrid.tileSize = 16;
 		entities = new ArrayList<Entity>();	
 	}
 	

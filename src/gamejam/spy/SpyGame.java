@@ -3,7 +3,10 @@ package gamejam.spy;
 import gamejam.spy.controllers.KeyInput;
 import gamejam.spy.controllers.MouseInput;
 import gamejam.spy.gameObjects.Level;
+import gamejam.spy.gameObjects.entities.Player;
 import gamejam.spy.gameObjects.menus.MainMenu;
+import gamejam.spy.gameObjects.tiles.Tile;
+import gamejam.spy.gameObjects.tiles.TriangleTile;
 import gamejam.spy.graphics.Window;
 
 public class SpyGame {
@@ -21,8 +24,24 @@ public class SpyGame {
 		debug = false;
 		
 		loadedLevel = new MainMenu();
+		init();
 		
 		gameLoop(window);
+	}
+	
+	public static void init() {
+		Level l = new Level();
+		l.addEntity(new Player());
+		
+		Tile t = new Tile();
+		t.setTextureKey("tempTestImage.png");
+		
+		TriangleTile t2 = new TriangleTile(0);
+		
+		l.addTile(new Tile(), new Vector(2, 2));
+		l.addTile(t2, new Vector(2,3));
+		
+		loadedLevel = l;
 	}
 	
 	public static void gameLoop(Window w) {
