@@ -12,7 +12,7 @@ public class SpyGame {
 	
 	public static void main(String[] args) {
 		Window w = new Window("Spy Game", 1000, 800);
-		
+		w.createDisplay();
 		running = true;
 		paused = false;
 		debug = false;
@@ -65,7 +65,7 @@ public class SpyGame {
 	public static void tick() {
 		KeyInput.update();
 		MouseInput.update();
-		loadedLevel.tick();
+		//loadedLevel.tick();
 	}
 	
 	public static void render(Window w) {

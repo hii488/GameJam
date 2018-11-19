@@ -1,7 +1,5 @@
 package gamejam.spy;
 
-import java.awt.Rectangle;
-
 public class Vector {
 	public final static Vector ORIGIN = new Vector(0,0);
 	
@@ -73,6 +71,10 @@ public class Vector {
 	
 	public double distance(Vector v) {
 		return Math.sqrt(Math.pow(v.x- x, 2) + Math.pow(v.y - y, 2));
+	}
+	
+	public Vector difference(Vector v) {
+		return new Vector(x - v.getX(), y - v.getY());
 	}
 	
 	public double distance(double vx, double vy) {
@@ -149,14 +151,14 @@ public class Vector {
 	    Vector rotated = new Vector(y, -x);
 	    return rotated;
 	}
-	public Vector leftNormal(Vector v){
+	public Vector leftNormal(){
 	    Vector rotated = new Vector(-y, x);
 	    return rotated;
 	}
-	double dotV2D(Vector v2) {
+	public double dot(Vector v2) {
 	    return (x * v2.getX()) + (x * v2.getY());
 	}
-	double crossV2D(Vector v2) {
+	public double cross(Vector v2) {
 	    return (x * v2.getY()) - (v2.getX() * y);
 	}
 }
