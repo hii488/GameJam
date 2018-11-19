@@ -36,13 +36,21 @@ public class SpyGame {
 		Level l = new Level();
 		l.addEntity(new Player());
 		
-	//	Tile t = new Tile();
-	//	t.setTextureKey("tempTestImage.png");
+		for (int i = 0; i < 40; i ++) {
+			l.addTile(new Tile(), new Vector(i, 20));
+		}
 		
-	//	TriangleTile t2 = new TriangleTile(0);
+		for (int i = 0; i < 5; i ++) {
+			l.addTile(new TriangleTile(3), new Vector(40 + i, 20 + i));
+		}
 		
-	//	l.addTile(new Tile(), new Vector(2, 2));
-	//	l.addTile(t2, new Vector(2,3));
+		for (int i = 0; i < 5; i ++) {
+			l.addTile(new TriangleTile(0), new Vector(45 + i, 18 - i));
+		}
+		
+		for (int i = 0; i < 10; i ++) {
+			l.addTile(new Tile(), new Vector(50 + i, 14));
+		}
 		
 		loadedLevel = l;
 	}

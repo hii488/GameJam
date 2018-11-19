@@ -28,10 +28,10 @@ public class KeyInput implements KeyListener{
 			lastKeys[i] = keys[i];
 		}
 	}
-	public static boolean wasPressed(int key){
+	public static boolean wasPressed(int key) {
 		return isDown(key) && !lastKeys[key]; //Return true if the key is down in this tick, but wasn't down in the last tick.
 	}
-	public static boolean wasReleased(int key){
+	public static boolean wasReleased(int key) {
 		return !isDown(key) && lastKeys[key]; //Return true if the key isn't down in this tick, but was down in the last tick.
 	}
 
