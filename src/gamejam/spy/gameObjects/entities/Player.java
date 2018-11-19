@@ -1,7 +1,11 @@
 package gamejam.spy.gameObjects.entities;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -59,19 +63,20 @@ public class Player extends Entity {
 				counter -= 3;
 				currentTex = (currentTex + 1) % textures.length;
 			}
-		} else {
-			this.setTextureKey(idle);
-			counter = 0;
-			currentTex = 0;
-		}
-		if (KeyInput.isDown(KeyEvent.VK_A)) {
+		} 
+		else if (KeyInput.isDown(KeyEvent.VK_A)) {
 			isRight = false;
 			moveX(-5);
 			if (counter > 3) {
 				this.setTextureKey(textures[currentTex]);
 				counter -= 3;
 				currentTex = (currentTex + 1) % textures.length;
+				System.out.println(currentTex);
 			}
+		} else {
+			this.setTextureKey(idle);
+			counter = 0;
+			currentTex = 0;
 		}
 		if (KeyInput.isDown(KeyEvent.VK_W) && yv == 0) {
 			this.yv = 10;
@@ -93,7 +98,12 @@ public class Player extends Entity {
 		if (isRight) {
 			g.drawImage(TextureMap.getTexture(getTextureKey()), position.getIX(), position.getIY(), null);
 		} else {
-			
+			BufferedImage texture = (BufferedImage) TextureMap.getTexture(getTextureKey());
+			AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
+			tx.translate(-texture.getWidth(null), 0);
+			AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
+			texture = op.filter(texture, null);
+			g.drawImage(texture, position.getIX(), position.getIY(), null);
 		}
 	}
 	
