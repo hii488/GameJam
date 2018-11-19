@@ -12,10 +12,6 @@ import gamejam.spy.interfaces.Textured;
 
 public class TriangleTile extends Tile implements Renderable, Textured {
 	
-	public Vector gridPosition;
-	public Grid parentGrid;
-	public String textureKey;
-	public Lamina2D lamina;
 	private int orientation;
 	public TriangleTile (int orientation) {
 		this.orientation = orientation;
@@ -51,11 +47,6 @@ public class TriangleTile extends Tile implements Renderable, Textured {
 	}
 	
 	public void tick() {
-		
-	}
-	
-	@Override
-	public void render(Graphics g) {
 		
 	}
 

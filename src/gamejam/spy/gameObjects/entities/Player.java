@@ -13,7 +13,7 @@ import gamejam.spy.gameObjects.tiles.Tile;
 
 public class Player extends Entity {
 	
-	public String[] textures = {"Player.png", "PlayerRunning1.png", "playerRun2.png"}; // TODO: correct this
+	public String[] textures = {"player", "PlayerRunning1.png", "playerRun2.png"}; // TODO: correct this
 	
 	private Vertex pos;
 	private Lamina2D lamina;
@@ -59,6 +59,7 @@ public class Player extends Entity {
 		for (Tile t : tiles) {
 			lamina.resolvePen(t.getLamina());
 		}
+		position.setLocation(pos.getX(), pos.getY());
 		
 	}
 	

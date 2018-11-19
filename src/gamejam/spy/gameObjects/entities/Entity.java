@@ -3,6 +3,7 @@ package gamejam.spy.gameObjects.entities;
 import java.awt.Graphics;
 
 import gamejam.spy.Vector;
+import gamejam.spy.controllers.TextureMap;
 import gamejam.spy.interfaces.Renderable;
 import gamejam.spy.interfaces.Textured;
 
@@ -12,7 +13,9 @@ public class Entity implements Renderable, Textured {
 	public String textureKey = "";
 	
 	@Override
-	public void render(Graphics g) {}
+	public void render(Graphics g) {
+		g.drawImage(TextureMap.getTexture(getTextureKey()), position.getIX(), position.getIY(), null);
+	}
 
 	public void tick() {}
 
