@@ -61,6 +61,6 @@ public class Window {
 
 		g.dispose();
 		bs.show();
-}
+	}
 	
 }
