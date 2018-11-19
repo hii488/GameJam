@@ -2,6 +2,7 @@ package gamejam.spy;
 
 import gamejam.spy.controllers.KeyInput;
 import gamejam.spy.controllers.MouseInput;
+import gamejam.spy.controllers.TextureMap;
 import gamejam.spy.gameObjects.Level;
 import gamejam.spy.gameObjects.entities.Player;
 import gamejam.spy.gameObjects.menus.MainMenu;
@@ -30,16 +31,18 @@ public class SpyGame {
 	}
 	
 	public static void init() {
+		TextureMap.loadTexture("resources/textures/Player.png", "player");
+		
 		Level l = new Level();
 		l.addEntity(new Player());
 		
-		Tile t = new Tile();
-		t.setTextureKey("tempTestImage.png");
+	//	Tile t = new Tile();
+	//	t.setTextureKey("tempTestImage.png");
 		
-		TriangleTile t2 = new TriangleTile(0);
+	//	TriangleTile t2 = new TriangleTile(0);
 		
-		l.addTile(new Tile(), new Vector(2, 2));
-		l.addTile(t2, new Vector(2,3));
+	//	l.addTile(new Tile(), new Vector(2, 2));
+	//	l.addTile(t2, new Vector(2,3));
 		
 		loadedLevel = l;
 	}
@@ -47,8 +50,7 @@ public class SpyGame {
 	public static void gameLoop(Window w) {
 		int tick = 0;
 		
-		int targetTPS = 60;
-		
+		int targetTPS = 30;
 		double fpsTimer = System.currentTimeMillis();
 		double secondsPerTick = 1D / targetTPS;
 		double nsPerTick = secondsPerTick * 1000000000D;
@@ -72,6 +74,7 @@ public class SpyGame {
 			
 			// If the current time is 1 second greater than the last time we printed
 			if (System.currentTimeMillis() - fpsTimer >= 1000) {
+				System.out.println(tick);
 				tick = 0;
 				fpsTimer += 1000;
 				
