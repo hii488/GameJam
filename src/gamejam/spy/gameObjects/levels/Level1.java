@@ -55,6 +55,7 @@ public class Level1 extends Level {
 		addEntity(c);
 		
 		Hat h = new Hat();
+		h.setPosition(13*32, 23*32);
 		h.setHatID(0);
 		h.setTextureKey("cap");
 		addEntity(h);

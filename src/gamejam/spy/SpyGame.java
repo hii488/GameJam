@@ -1,15 +1,10 @@
 package gamejam.spy;
 
-import gamejam.spy.controllers.AudioPlayer;
 import gamejam.spy.controllers.KeyInput;
 import gamejam.spy.controllers.MouseInput;
 import gamejam.spy.controllers.TextureMap;
 import gamejam.spy.gameObjects.Level;
-import gamejam.spy.gameObjects.entities.Camera;
-import gamejam.spy.gameObjects.entities.Player;
-import gamejam.spy.gameObjects.menus.MainMenu;
-import gamejam.spy.gameObjects.tiles.Tile;
-import gamejam.spy.gameObjects.tiles.TriangleTile;
+import gamejam.spy.gameObjects.levels.MainMenu;
 import gamejam.spy.graphics.Window;
 
 public class SpyGame {
@@ -19,9 +14,14 @@ public class SpyGame {
 	public static Window window;
 	
 	public static void main(String[] args) {
-		window = new Window("Spy Game", 1000, 800);
-		window.createDisplay();
+		window = new Window("Spy Game", 992, 800);
+		init();
 		
+		gameLoop(window);
+	}
+
+	public static void init() {
+		window.createDisplay();
 		
 		running = true;
 		paused = false;
@@ -29,9 +29,6 @@ public class SpyGame {
 		
 		loadedLevel = new MainMenu();
 		loadTextures();
-		init();
-		
-		gameLoop(window);
 	}
 	
 	public static void loadTextures() {
@@ -86,33 +83,6 @@ public class SpyGame {
 		TextureMap.loadTexture("resources/textures/hats/xmas-hat.png", "xmas");
 	}
 	
-	public static void init() {
-		
-		Level l = new Level();
-		l.addEntity(new Player());
-		
-		for (int i = 0; i < 40; i ++) {
-			l.addTile(new Tile(), new Vector(i, 20));
-		}
-		
-		for (int i = 0; i < 5; i ++) {
-			l.addTile(new TriangleTile(3), new Vector(40 + i, 20 + i));
-		}
-		
-		for (int i = 0; i < 5; i ++) {
-			l.addTile(new TriangleTile(0), new Vector(45 + i, 18 - i));
-		}
-		
-		for (int i = 0; i < 10; i ++) {
-			l.addTile(new Tile(), new Vector(50 + i, 14));
-		}
-		
-		Camera c = new Camera();
-		c.position = new Vector(40, 50);
-		l.addEntity(c);
-		
-		loadedLevel = l;
-	}
 	
 	public static void gameLoop(Window w) {
 		int tick = 0;

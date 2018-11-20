@@ -1,7 +1,6 @@
 package gamejam.spy.gameObjects.entities;
 
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
@@ -145,11 +144,8 @@ public class Player extends Entity {
 			lamina.resolvePen(t.getLamina());
 			if (lamina.isTouching(t.getLamina())) {
 				yv = 0;
-<<<<<<< Updated upstream
 				t.onCollide();
-=======
 				this.isJumping = false;
->>>>>>> Stashed changes
 			}
 		}
 		
