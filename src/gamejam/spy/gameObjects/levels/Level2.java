@@ -1,5 +1,7 @@
 package gamejam.spy.gameObjects.levels;
 
+import java.awt.Color;
+
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
 import gamejam.spy.gameObjects.Level;
@@ -14,6 +16,7 @@ public class Level2 extends Level {
 
 	public Level2() {
 		super();
+		this.backgroundImage = "SCENE2";
 		music = "SPY1_INTRO.mp3";
 		
 		//Universal Death line
@@ -77,6 +80,7 @@ public class Level2 extends Level {
 		
 		Camera c = new Camera();
 		c.setPosition((int) (16.5 * 32),  14 * 32);
+		c.colour = Color.yellow;
 		c.dist = 200;
 		c.width = 20;
 		
