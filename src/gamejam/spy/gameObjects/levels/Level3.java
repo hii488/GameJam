@@ -2,7 +2,6 @@ package gamejam.spy.gameObjects.levels;
 
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
-import gamejam.spy.controllers.SoundPlayer;
 import gamejam.spy.gameObjects.Level;
 import gamejam.spy.gameObjects.entities.Camera;
 import gamejam.spy.gameObjects.entities.Hat;
@@ -17,7 +16,7 @@ public class Level3 extends Level {
 	public Level3() {
 		super();
 
-		SoundPlayer.playSound("SPY2_SEWER.wav");
+	//	SoundPlayer.playSound("SPY2_SEWER.wav");
 		
 		//Universal Death line
 		for(int i = 0; i < 32; i++) {
