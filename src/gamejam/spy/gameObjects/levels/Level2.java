@@ -60,8 +60,8 @@ public class Level2 extends Level {
 		
 		// Spikes
 		for(int i = 0; i < 4; i++) {
-			addTile(new DeathTile().setTextureKey("slime"), new Vector(24, 21 +i));
-			addTile(new DeathTile().setTextureKey("slime"), new Vector(28, 21 +i));
+			addTile(new DeathTile().setTextureKey("SpikeL"), new Vector(24, 21 +i));
+			addTile(new DeathTile().setTextureKey("SpikeR"), new Vector(28, 21 +i));
 		}
 		
 		addTile(new LevelExit(), new Vector(26, 24));
