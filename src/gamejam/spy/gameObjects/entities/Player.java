@@ -54,12 +54,16 @@ public class Player extends Entity {
 		switch(hat) {
 		case ORIGINAL:
 			this.setTextureKey(idle[0]);
+			break;
 		case BLUE:
 			this.setTextureKey(idle[1]);
+			break;
 		case SANTA:
 			this.setTextureKey(idle[2]);
+			break;
 		case SCUBA:
 			this.setTextureKey(idle[3]);
+			break;
 		}
 	}
 	
@@ -88,12 +92,16 @@ public class Player extends Entity {
 				switch(hat) {
 				case ORIGINAL:
 					this.setTextureKey(textures[currentTex]);
+					break;
 				case BLUE:
 					this.setTextureKey(textures2[currentTex]);
+					break;
 				case SANTA:
 					this.setTextureKey(textures3[currentTex]);
+					break;
 				case SCUBA:
 					this.setTextureKey(textures4[currentTex]);
+					break;
 				}
 				counter -= 3;
 				currentTex = (currentTex + 1) % textures.length;
@@ -107,12 +115,16 @@ public class Player extends Entity {
 				switch(hat) {
 				case ORIGINAL:
 					this.setTextureKey(textures[currentTex]);
+					break;
 				case BLUE:
 					this.setTextureKey(textures2[currentTex]);
+					break;
 				case SANTA:
 					this.setTextureKey(textures3[currentTex]);
+					break;
 				case SCUBA:
 					this.setTextureKey(textures4[currentTex]);
+					break;
 				}
 				counter -= 3;
 				currentTex = (currentTex + 1) % textures.length;
@@ -123,12 +135,16 @@ public class Player extends Entity {
 				switch(hat) {
 				case ORIGINAL:
 					this.setTextureKey(idle[0]);
+					break;
 				case BLUE:
 					this.setTextureKey(idle[1]);
+					break;
 				case SANTA:
 					this.setTextureKey(idle[2]);
+					break;
 				case SCUBA:
 					this.setTextureKey(idle[3]);
+					break;
 				}
 			}
 			counter = 0;
@@ -141,12 +157,16 @@ public class Player extends Entity {
 				switch(hat) {
 				case ORIGINAL:
 					this.setTextureKey("playerJumping");
+					break;
 				case BLUE:
 					this.setTextureKey("playerBlueHatJumping");
+					break;
 				case SANTA:
 					this.setTextureKey("playerSantaHatJumping");
+					break;
 				case SCUBA:
 					this.setTextureKey("playerScubaMaskJumping");
+					break;
 				}
 			}
 			
