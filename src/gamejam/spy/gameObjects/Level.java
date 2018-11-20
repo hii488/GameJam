@@ -7,16 +7,18 @@ import java.util.ArrayList;
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
 import gamejam.spy.controllers.KeyInput;
+import gamejam.spy.controllers.TextureMap;
 import gamejam.spy.gameObjects.entities.Entity;
 import gamejam.spy.gameObjects.tiles.Tile;
 import gamejam.spy.interfaces.Renderable;
 import gamejam.spy.interfaces.Textured;
 
-public class Level implements Renderable, Textured {
+public abstract class Level implements Renderable, Textured {
 	
 	public Grid tileGrid;
 	public ArrayList<Entity> entities;
 	public String backgroundImage = "defaultBackgroundImage";
+	public String music;
 	public boolean canPause = true;
 	
 	public Level() {
@@ -50,9 +52,13 @@ public class Level implements Renderable, Textured {
 			SpyGame.paused = true;
 		}
 	}
+	
+	public abstract void restartLevel();
+	public abstract void nextLevel();
 
 	@Override
 	public void render(Graphics g) {
+		g.drawImage(TextureMap.getTexture(backgroundImage), 0, 0, SpyGame.window.width, SpyGame.window.height, null);
 		tileGrid.grid.values().forEach(e-> e.render(g));
 		entities.forEach(e -> e.render(g));
 	}

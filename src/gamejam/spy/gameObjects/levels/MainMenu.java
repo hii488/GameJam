@@ -1,4 +1,4 @@
-package gamejam.spy.gameObjects.menus;
+package gamejam.spy.gameObjects.levels;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -19,8 +19,7 @@ public class MainMenu extends Level {
 		ButtonEntity start = new ButtonEntity() {
 			@Override
 			public void onClick() {
-				// TODO: start first level.
-				System.out.println("start first level");
+				SpyGame.loadedLevel = new Level1();
 			}
 		};
 		
@@ -51,5 +50,8 @@ public class MainMenu extends Level {
 		
 		super.render(g);
 	}
+	
+	public void restartLevel() {}
+	public void nextLevel() {}
 	
 }

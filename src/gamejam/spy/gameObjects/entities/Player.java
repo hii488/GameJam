@@ -17,7 +17,7 @@ import gamejam.spy.gameObjects.tiles.Tile;
 
 public class Player extends Entity {
 	
-	public String[] textures = {"playerRunning1", "playerRunning2", "playerRunning3", "playerRunning4", "playerRunning5", "playerRunning6", "playerRunning7"}; // TODO: correct this
+	public String[] textures = {"playerRunning1", "playerRunning2", "playerRunning3", "playerRunning4", "playerRunning5", "playerRunning6", "playerRunning7"};
 	public String idle = "player";
 	private Vertex pos;
 	private Lamina2D lamina;
@@ -25,6 +25,7 @@ public class Player extends Entity {
 	private int counter = 0;
 	private int currentTex = 0;
 	
+	public int hat = 0;
 	
 	private double yv = 0;
 	
@@ -51,6 +52,12 @@ public class Player extends Entity {
 	
 	public void moveY(double y) {
 		lamina.addY(y);
+	}
+	
+	public void setPosition(int x, int y) {
+		position.setLocation(x,y);
+		pos.setX(x);
+		pos.setY(y);
 	}
 	
 	public void tick() {

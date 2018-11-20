@@ -1,12 +1,14 @@
 package gamejam.spy.gameObjects.entities;
 
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
+import gamejam.spy.controllers.KeyInput;
 import gamejam.spy.controllers.TextureMap;
 
 public class Camera extends Entity {
@@ -18,6 +20,7 @@ public class Camera extends Entity {
 	public int maxRot, minRot;
 	public int width, dist;
 	public Vector facing, upper, lower;
+	public Vector lastPos;
 	
 	public Camera() {
 		textureKey = "cameraGreen";
@@ -32,6 +35,7 @@ public class Camera extends Entity {
 		facing = new Vector(0,0);
 		upper = new Vector(0,0);
 		lower = new Vector(0,0);
+		lastPos = new Vector(0,0);
 	}
 	
 	public void tick() {
@@ -75,11 +79,19 @@ public class Camera extends Entity {
 		
 		if     (playerAngle1 < upperAngle && playerAngle1 > lowerAngle && playerDirection1.magnitude() < dist) caught();
 		else if(playerAngle2 < upperAngle && playerAngle2 > lowerAngle && playerDirection2.magnitude() < dist) caught();
+		else lastPos.setLocation(-1, -1);
 	}
 	
 	public void caught() {
-		// TODO: Restart the level.
-		System.out.println("Seen!");
+		if(((Player) SpyGame.loadedLevel.entities.get(0)).hat == -1) SpyGame.loadedLevel.restartLevel();
+		else if(!lastPos.equals(new Vector(-1,-1))) {
+			if(!lastPos.equals(SpyGame.loadedLevel.entities.get(0).position)) {
+				SpyGame.loadedLevel.restartLevel();
+			}
+		}
+		else {
+			lastPos.setLocation(SpyGame.loadedLevel.entities.get(0).position);
+		}
 	}
 	
 	

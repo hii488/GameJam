@@ -1,4 +1,4 @@
-package gamejam.spy.gameObjects.menus;
+package gamejam.spy.gameObjects.levels;
 
 import gamejam.spy.SpyGame;
 import gamejam.spy.gameObjects.Level;
