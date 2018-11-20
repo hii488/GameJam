@@ -63,7 +63,7 @@ public class Level5 extends Level{
 		addTile(new Tile().setTextureKey("ice"), new Vector(23, 22));
 		addTile(new Tile().setTextureKey("ice"), new Vector(19, 22));
 		
-		addTile(new LevelExit().setTextureKey("ice"), new Vector(28, 21));
+		addTile(new LevelExit().setTextureKey("iceF"), new Vector(28, 21));
 		
 		addTile(new HorizontalProjectileFlingers().setChance(0.004f).setTextureKey("present"), new Vector(-1, 4));
 		addTile(new HorizontalProjectileFlingers().setChance(0.004f).setTextureKey("present"), new Vector(-1, 5));
