@@ -16,7 +16,7 @@ public class HorizontalProjectileFlingers extends Tile{
 			HorizontalProjectiles slime = new HorizontalProjectiles();
 			slime.position = this.gridPosition.copy().scale(parentGrid.tileSize).translate(0,34);
 			slime.setDimensions(new Vector(4,4));
-			slime.setTextureKey("Drop");
+			slime.setTextureKey("present");
 			SpyGame.loadedLevel.addEntity(slime);
 			System.out.println("added");
 		}
