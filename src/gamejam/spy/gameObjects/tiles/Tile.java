@@ -52,7 +52,7 @@ public class Tile implements Renderable, Textured {
 	
 	@Override
 	public void render(Graphics g) {
-		g.drawImage(TextureMap.getTexture(getTextureKey()), gridPosition.getIX() * parentGrid.tileSize, gridPosition.getIY() * parentGrid.tileSize, gridPosition.getIX() * parentGrid.tileSize + parentGrid.tileSize, gridPosition.getIY() * parentGrid.tileSize + parentGrid.tileSize, null);
+		g.drawImage(TextureMap.getTexture(getTextureKey()), gridPosition.getIX() * parentGrid.tileSize, gridPosition.getIY() * parentGrid.tileSize, parentGrid.tileSize, parentGrid.tileSize, null);
 		g.drawPolygon(lamina.getPolygon());
 	}
 
