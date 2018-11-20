@@ -70,7 +70,7 @@ public class Lamina2D {
 		}
 		return true;
 	}
-	public void resolvePen(Lamina2D l2){
+	public boolean resolvePen(Lamina2D l2){
 		double overlap = Double.POSITIVE_INFINITY;
 		Vertex smallest = new Vertex(0,0);
 		ArrayList<Vertex> axes1 = getAxes1();
@@ -86,7 +86,7 @@ public class Lamina2D {
 					smallest = an1;
 				}
 			}else{
-				return;
+				return false;
 			}
 		}
 		
@@ -101,7 +101,7 @@ public class Lamina2D {
 					smallest = an2;
 				}
 			}else{
-				return;
+				return false;
 			}
 		}
 		if (immovable) {
@@ -116,6 +116,8 @@ public class Lamina2D {
 			l2.addX(-overlap/2*smallest.getX());
 			l2.addY(-overlap/2*smallest.getY());
 		}
+		
+		return overlap*smallest.getY() != 0;
 	}
 	public void addX(double dx){
 		for (Vertex v : vertices) {

@@ -50,6 +50,9 @@ public class Player extends Entity {
 		
 		lamina = new Lamina2D(vertices, false);
 		
+		lamina.addY(150);
+		lamina.addX(30);
+		
 		
 		switch(hat) {
 		case ORIGINAL:
@@ -171,7 +174,7 @@ public class Player extends Entity {
 			}
 			
 			this.isJumping = true;
-			this.yv = 10;
+			this.yv = 14;
 		}
 		yv -= 0.9;
 		moveY(-yv);
@@ -179,8 +182,8 @@ public class Player extends Entity {
 		// Resolve tile collision.
 		Collection<Tile> tiles = SpyGame.loadedLevel.tileGrid.grid.values();
 		for (Tile t : tiles) {
-			lamina.resolvePen(t.getLamina());
-			if (lamina.isTouching(t.getLamina())) {
+			
+			if (lamina.resolvePen(t.getLamina())) {
 				yv = 0;
 				t.onCollide();
 				this.isJumping = false;
