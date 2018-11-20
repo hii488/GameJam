@@ -1,6 +1,7 @@
 package gamejam.spy.gameObjects.levels;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 import gamejam.spy.SpyGame;
@@ -47,6 +48,15 @@ public class MainMenu extends Level {
 	public void render(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, SpyGame.window.width, SpyGame.window.height);
+		
+		Font f = g.getFont();
+		g.setColor(Color.WHITE);
+		
+		g.setFont(new Font("Ariel", Font.BOLD, 50));
+		g.drawString("A Spy Game", SpyGame.window.width/2 - 175, 200);
+		
+		g.setColor(Color.BLACK);
+		g.setFont(f);
 		
 		super.render(g);
 	}

@@ -48,8 +48,8 @@ public class Level3 extends Level {
 		addTile(new Tile().setTextureKey("box"), new Vector(12, 2));
 		
 		//Slime dispensers
-		addTile(new SlimeDispenser().setTextureKey("box"), new Vector(9, 3));
-		addTile(new SlimeDispenser().setTextureKey("box"), new Vector(2, 3));
+		addTile(new SlimeDispenser().setChance(0.06f).setTextureKey("box"), new Vector(9, 3));
+		addTile(new SlimeDispenser().setChance(0.06f).setTextureKey("box"), new Vector(2, 3));
 
 		addTile(new Tile().setTextureKey("box"), new Vector(12, 5));
 		addTile(new Tile().setTextureKey("box"), new Vector(13, 5));
