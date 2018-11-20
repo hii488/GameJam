@@ -68,7 +68,7 @@ public class Level1 extends Level {
 	}
 	
 	public void nextLevel() {
-		System.out.println("next level");
+		SpyGame.loadedLevel = new Level2();
 	}
 	
 }

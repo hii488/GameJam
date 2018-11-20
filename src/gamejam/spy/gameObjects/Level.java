@@ -51,8 +51,13 @@ public abstract class Level implements Renderable, Textured {
 	}
 	
 	public void tick() {
-		tileGrid.grid.values().forEach(e -> e.tick());
-		entities.forEach(e -> e.tick());
+		try {
+			tileGrid.grid.values().forEach(e -> e.tick());
+			entities.forEach(e -> e.tick());
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		if(KeyInput.isDown(KeyEvent.VK_P)) {
 			SpyGame.paused = true;

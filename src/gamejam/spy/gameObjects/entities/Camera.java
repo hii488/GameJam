@@ -64,8 +64,8 @@ public class Camera extends Entity {
 		}
 		
 		facing = new Vector(-1,1).scale(dist).rotateDeg(direction);
-		upper = facing.copy().rotateDeg(width);
-		lower = facing.copy().rotateDeg(-width);
+		upper = facing.copy().rotateDeg(width*0.8);
+		lower = facing.copy().rotateDeg(-width*0.8);
 		
 		Vector playerDirection1 = SpyGame.loadedLevel.entities.get(0).position.difference(position);
 		Vector playerDirection2 = SpyGame.loadedLevel.entities.get(0).position.copy().translate(20, 30).difference(position); // Other corner
@@ -103,8 +103,8 @@ public class Camera extends Entity {
 
 		// Drawing the rotated image at the required drawing locations
 		g.drawImage(op.filter(image, null), position.getIX(), position.getIY(), null);
-		g.drawLine(position.getIX() + image.getWidth()/2, position.getIY() + image.getHeight()/2, position.getIX() + image.getWidth()/2 + upper.getIX() , position.getIY() + image.getHeight()/2 + upper.getIY());
-		g.drawLine(position.getIX() + image.getWidth()/2, position.getIY() + image.getHeight()/2, position.getIX() + image.getWidth()/2 + lower.getIX() , position.getIY() + image.getHeight()/2 + lower.getIY());
+		g.drawLine(position.getIX() + image.getWidth()/2, position.getIY() + image.getHeight()/2, position.getIX() + image.getWidth()/2 + (int) (upper.getIX()*0.9), position.getIY() + image.getHeight()/2 + (int) (upper.getIY()*0.9));
+		g.drawLine(position.getIX() + image.getWidth()/2, position.getIY() + image.getHeight()/2, position.getIX() + image.getWidth()/2 + (int) (lower.getIX()*0.9), position.getIY() + image.getHeight()/2 + (int) (lower.getIY()*0.9));
 	}
 	
 	
