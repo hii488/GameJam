@@ -18,26 +18,19 @@ import gamejam.spy.gameObjects.tiles.Tile;
 
 public class Player extends Entity {
 	
-<<<<<<< Updated upstream
 	public String[] textures = {"playerRunning1", "playerRunning2", "playerRunning3", "playerRunning4", "playerRunning5", "playerRunning6", "playerRunning7"};
-	public String idle = "player";
-=======
-	public String[] textures = {"playerRunning1", "playerRunning2", "playerRunning3", "playerRunning4", "playerRunning5", "playerRunning6", "playerRunning7"}; // TODO: correct this
 	public String[] textures2 = {"playerBlueHatRunning1", "playerBlueHatRunning2", "playerBlueHatRunning3", "playerBlueHatRunning4", "playerBlueHatRunning5", "playerBlueHatRunning6", "playerBlueHatRunning7"};
 	
 	public String[] idle = {"player", "playerBlueHat"};
->>>>>>> Stashed changes
+
 	private Vertex pos;
 	private Lamina2D lamina;
 	
 	private int counter = 0;
 	private int currentTex = 0;
 	
-<<<<<<< Updated upstream
 	public int hat = -1;
-	
-=======
->>>>>>> Stashed changes
+
 	private double yv = 0;
 	
 	boolean isOriginal = false;
