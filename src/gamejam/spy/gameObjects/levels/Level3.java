@@ -3,8 +3,11 @@ package gamejam.spy.gameObjects.levels;
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
 import gamejam.spy.gameObjects.Level;
+import gamejam.spy.gameObjects.entities.Camera;
+import gamejam.spy.gameObjects.entities.Hat;
 import gamejam.spy.gameObjects.entities.Player;
 import gamejam.spy.gameObjects.tiles.DeathTile;
+import gamejam.spy.gameObjects.tiles.LevelExit;
 import gamejam.spy.gameObjects.tiles.SlimeDispenser;
 import gamejam.spy.gameObjects.tiles.Tile;
 
@@ -15,7 +18,7 @@ public class Level3 extends Level {
 		music = "SPY2_SEWER.mp3";
 		
 		//Universal Death line
-		for(int i = 0; i < 30; i++) {
+		for(int i = 0; i < 32; i++) {
 			addTile(new DeathTile().setTextureKey("slime"), new Vector(i, 24));
 		}
 		
@@ -40,8 +43,9 @@ public class Level3 extends Level {
 		addTile(new Tile().setTextureKey("box"), new Vector(11, 3));
 		addTile(new Tile().setTextureKey("box"), new Vector(12, 2));
 		
-		//Slime dispenser
+		//Slime dispensers
 		addTile(new SlimeDispenser().setTextureKey("box"), new Vector(9, 3));
+		addTile(new SlimeDispenser().setTextureKey("box"), new Vector(2, 3));
 
 		addTile(new Tile().setTextureKey("box"), new Vector(12, 5));
 		addTile(new Tile().setTextureKey("box"), new Vector(13, 5));
@@ -63,14 +67,45 @@ public class Level3 extends Level {
 		addTile(new Tile().setTextureKey("box"), new Vector(22, 6));
 		addTile(new Tile().setTextureKey("box"), new Vector(23, 5));
 		
-		addTile(new Tile().setTextureKey("box"), new Vector(23, 3));
 		addTile(new Tile().setTextureKey("box"), new Vector(23, 2));
 		addTile(new Tile().setTextureKey("box"), new Vector(23, 1));
 		addTile(new Tile().setTextureKey("box"), new Vector(24, 0));
-			
+		
+		// Tiles to hat
+		addTile(new Tile().setTextureKey("box"), new Vector(10, 13));
+		addTile(new Tile().setTextureKey("box"), new Vector(7, 15));
+		addTile(new Tile().setTextureKey("box"), new Vector(5, 16));
+		addTile(new Tile().setTextureKey("box"), new Vector(4, 16));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(1, 16));
+		
+		// Tiles to end
+		addTile(new Tile().setTextureKey("box"), new Vector(23, 5));
+		addTile(new Tile().setTextureKey("box"), new Vector(24, 5));
+		addTile(new Tile().setTextureKey("box"), new Vector(25, 5));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(27, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(27, 24));
+		addTile(new Tile().setTextureKey("box"), new Vector(29, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(29, 24));
+
+		addTile(new LevelExit(), new Vector(28, 24));
 		
 		//Entities
 		addEntity(new Player());
+		
+		Hat h = new Hat();
+		h.setPosition(1*32, 15*32);
+		h.setHatID(Player.Hat.SCUBA);
+		h.setTextureKey("scuba");
+		addEntity(h);
+		
+		Camera c = new Camera();
+		c.setPosition((int) (20 * 32),  2 * 32);
+		c.dist = 170;
+		c.width = 25;
+		
+		addEntity(c);
 	}
 	
 	@Override
