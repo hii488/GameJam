@@ -1,6 +1,7 @@
 package gamejam.spy.gameObjects.entities;
 
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
@@ -17,19 +18,36 @@ import gamejam.spy.gameObjects.tiles.Tile;
 
 public class Player extends Entity {
 	
+<<<<<<< Updated upstream
 	public String[] textures = {"playerRunning1", "playerRunning2", "playerRunning3", "playerRunning4", "playerRunning5", "playerRunning6", "playerRunning7"};
 	public String idle = "player";
+=======
+	public String[] textures = {"playerRunning1", "playerRunning2", "playerRunning3", "playerRunning4", "playerRunning5", "playerRunning6", "playerRunning7"}; // TODO: correct this
+	public String[] textures2 = {"playerBlueHatRunning1", "playerBlueHatRunning2", "playerBlueHatRunning3", "playerBlueHatRunning4", "playerBlueHatRunning5", "playerBlueHatRunning6", "playerBlueHatRunning7"};
+	
+	public String[] idle = {"player", "playerBlueHat"};
+>>>>>>> Stashed changes
 	private Vertex pos;
 	private Lamina2D lamina;
 	
 	private int counter = 0;
 	private int currentTex = 0;
 	
+<<<<<<< Updated upstream
 	public int hat = -1;
 	
+=======
+>>>>>>> Stashed changes
 	private double yv = 0;
 	
+	boolean isOriginal = false;
+	boolean isBlueHat = true;
+	boolean isSantaHat = false;
+	boolean isScubaMask = false;
+	
 	boolean isRight = true;
+	boolean isJumping = false;
+	boolean isMoving = false;
 	
 	public Player() {
 		super();
@@ -43,7 +61,12 @@ public class Player extends Entity {
 		
 		lamina = new Lamina2D(vertices, false);
 		
-		this.setTextureKey(idle);
+		if(isOriginal) {
+			this.setTextureKey(idle[0]);
+		}
+		if(isBlueHat) {
+			this.setTextureKey(idle[1]);
+		}
 	}
 	
 	public void moveX(double x) {
@@ -65,27 +88,59 @@ public class Player extends Entity {
 		super.tick();
 		if (KeyInput.isDown(KeyEvent.VK_D) || KeyInput.isDown(KeyEvent.VK_RIGHT)) {
 			isRight = true;
+			isMoving = true;
 			moveX(5);
-			this.setTextureKey(textures[currentTex]);
 			if (counter > 3) {
+				if(isOriginal) {
+					this.setTextureKey(textures[currentTex]);
+				}
+				if(isBlueHat) {
+					this.setTextureKey(textures2[currentTex]);
+				}
 				counter -= 3;
 				currentTex = (currentTex + 1) % textures.length;
 			}
 		} 
 		else if (KeyInput.isDown(KeyEvent.VK_A) || KeyInput.isDown(KeyEvent.VK_LEFT)) {
 			isRight = false;
+			isMoving = true;
 			moveX(-5);
-			this.setTextureKey(textures[currentTex]);
 			if (counter > 3) {
+				if(isOriginal) {
+					this.setTextureKey(textures[currentTex]);
+				}
+				if(isBlueHat) {
+					this.setTextureKey(textures2[currentTex]);
+				}
 				counter -= 3;
 				currentTex = (currentTex + 1) % textures.length;
+				System.out.println(currentTex);
 			}
 		} else {
-			this.setTextureKey(idle);
+			if (!isJumping) {
+				if(isOriginal) {
+					this.setTextureKey(idle[0]);
+				}
+				if(isBlueHat) {
+					this.setTextureKey(idle[1]);
+				}
+			}
 			counter = 0;
 			currentTex = 0;
+			isMoving = false;
 		}
 		if ((KeyInput.isDown(KeyEvent.VK_W)  || KeyInput.isDown(KeyEvent.VK_UP))&& yv == 0) {
+			
+			if (! isMoving) {
+				if(isOriginal) {
+					this.setTextureKey("playerJumping");
+				}
+				if(isBlueHat) {
+					this.setTextureKey("playerBlueHatJumping");
+				}
+			}
+			
+			this.isJumping = true;
 			this.yv = 10;
 		}
 		yv -= 0.9;
@@ -97,7 +152,11 @@ public class Player extends Entity {
 			lamina.resolvePen(t.getLamina());
 			if (lamina.isTouching(t.getLamina())) {
 				yv = 0;
+<<<<<<< Updated upstream
 				t.onCollide();
+=======
+				this.isJumping = false;
+>>>>>>> Stashed changes
 			}
 		}
 		

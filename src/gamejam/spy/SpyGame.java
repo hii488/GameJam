@@ -1,10 +1,15 @@
 package gamejam.spy;
 
+import gamejam.spy.controllers.AudioPlayer;
 import gamejam.spy.controllers.KeyInput;
 import gamejam.spy.controllers.MouseInput;
 import gamejam.spy.controllers.TextureMap;
 import gamejam.spy.gameObjects.Level;
-import gamejam.spy.gameObjects.levels.MainMenu;
+import gamejam.spy.gameObjects.entities.Camera;
+import gamejam.spy.gameObjects.entities.Player;
+import gamejam.spy.gameObjects.menus.MainMenu;
+import gamejam.spy.gameObjects.tiles.Tile;
+import gamejam.spy.gameObjects.tiles.TriangleTile;
 import gamejam.spy.graphics.Window;
 
 public class SpyGame {
@@ -14,14 +19,9 @@ public class SpyGame {
 	public static Window window;
 	
 	public static void main(String[] args) {
-		window = new Window("Spy Game", 992, 800);
-		init();
-			
-		gameLoop(window);
-	}
-	
-	public static void init() {
+		window = new Window("Spy Game", 1000, 800);
 		window.createDisplay();
+		
 		
 		running = true;
 		paused = false;
@@ -29,17 +29,52 @@ public class SpyGame {
 		
 		loadedLevel = new MainMenu();
 		loadTextures();
+		init();
+		
+		gameLoop(window);
 	}
 	
 	public static void loadTextures() {
-		TextureMap.loadTexture("resources/textures/Player.png", "player");
-		TextureMap.loadTexture("resources/textures/PlayerRunning1.png", "playerRunning1");
-		TextureMap.loadTexture("resources/textures/PlayerRunning2.png", "playerRunning2");
-		TextureMap.loadTexture("resources/textures/PlayerRunning3.png", "playerRunning3");
-		TextureMap.loadTexture("resources/textures/PlayerRunning4.png", "playerRunning4");
-		TextureMap.loadTexture("resources/textures/PlayerRunning5.png", "playerRunning5");
-		TextureMap.loadTexture("resources/textures/PlayerRunning6.png", "playerRunning6");
-		TextureMap.loadTexture("resources/textures/PlayerRunning7.png", "playerRunning7");
+		TextureMap.loadTexture("resources/textures/Player/Original/Player.png", "player");
+		TextureMap.loadTexture("resources/textures/Player/Original/PlayerRunning1.png", "playerRunning1");
+		TextureMap.loadTexture("resources/textures/Player/Original/PlayerRunning2.png", "playerRunning2");
+		TextureMap.loadTexture("resources/textures/Player/Original/PlayerRunning3.png", "playerRunning3");
+		TextureMap.loadTexture("resources/textures/Player/Original/PlayerRunning4.png", "playerRunning4");
+		TextureMap.loadTexture("resources/textures/Player/Original/PlayerRunning5.png", "playerRunning5");
+		TextureMap.loadTexture("resources/textures/Player/Original/PlayerRunning6.png", "playerRunning6");
+		TextureMap.loadTexture("resources/textures/Player/Original/PlayerRunning7.png", "playerRunning7");
+		TextureMap.loadTexture("resources/textures/Player/Original/PlayerJumping.png", "playerJumping");
+		
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHat.png", "playerBlueHat");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning1.png", "playerBlueHatRunning1");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning2.png", "playerBlueHatRunning2");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning3.png", "playerBlueHatRunning3");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning4.png", "playerBlueHatRunning4");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning5.png", "playerBlueHatRunning5");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning6.png", "playerBlueHatRunning6");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning7.png", "playerBlueHatRunning7");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatJumping.png", "playerBlueHatJumping");
+		
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHat.png", "playerBlueHat");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning1.png", "playerBlueHatRunning1");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning2.png", "playerBlueHatRunning2");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning3.png", "playerBlueHatRunning3");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning4.png", "playerBlueHatRunning4");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning5.png", "playerBlueHatRunning5");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning6.png", "playerBlueHatRunning6");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning7.png", "playerBlueHatRunning7");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatJumping.png", "playerBlueHatJumping");
+
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHat.png", "playerBlueHat");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning1.png", "playerBlueHatRunning1");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning2.png", "playerBlueHatRunning2");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning3.png", "playerBlueHatRunning3");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning4.png", "playerBlueHatRunning4");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning5.png", "playerBlueHatRunning5");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning6.png", "playerBlueHatRunning6");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning7.png", "playerBlueHatRunning7");
+		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatJumping.png", "playerBlueHatJumping");
+		
 		TextureMap.loadTexture("resources/textures/slime.png", "slime");
 		TextureMap.loadTexture("resources/textures/ice.png", "ice");
 		TextureMap.loadTexture("resources/textures/camera-green.png", "cameraGreen");
@@ -51,6 +86,33 @@ public class SpyGame {
 		TextureMap.loadTexture("resources/textures/hats/xmas-hat.png", "xmas");
 	}
 	
+	public static void init() {
+		
+		Level l = new Level();
+		l.addEntity(new Player());
+		
+		for (int i = 0; i < 40; i ++) {
+			l.addTile(new Tile(), new Vector(i, 20));
+		}
+		
+		for (int i = 0; i < 5; i ++) {
+			l.addTile(new TriangleTile(3), new Vector(40 + i, 20 + i));
+		}
+		
+		for (int i = 0; i < 5; i ++) {
+			l.addTile(new TriangleTile(0), new Vector(45 + i, 18 - i));
+		}
+		
+		for (int i = 0; i < 10; i ++) {
+			l.addTile(new Tile(), new Vector(50 + i, 14));
+		}
+		
+		Camera c = new Camera();
+		c.position = new Vector(40, 50);
+		l.addEntity(c);
+		
+		loadedLevel = l;
+	}
 	
 	public static void gameLoop(Window w) {
 		int tick = 0;
