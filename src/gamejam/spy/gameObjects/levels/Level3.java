@@ -1,5 +1,7 @@
 package gamejam.spy.gameObjects.levels;
 
+import java.awt.Color;
+
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
 import gamejam.spy.gameObjects.Level;
@@ -104,6 +106,7 @@ public class Level3 extends Level {
 		
 		Camera c = new Camera();
 		c.setPosition((int) (20 * 32),  2 * 32);
+		c.colour = Color.GREEN;
 		c.dist = 170;
 		c.width = 25;
 		
