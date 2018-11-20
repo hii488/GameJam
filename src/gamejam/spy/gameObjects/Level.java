@@ -19,7 +19,6 @@ public abstract class Level implements Renderable, Textured {
 	public ArrayList<Entity> entities;
 	public ArrayList<Entity> toDelete;
 	public String backgroundImage = "defaultBackgroundImage";
-	public String music;
 	public boolean canPause = true;
 	
 	public Level() {

@@ -14,7 +14,6 @@ public class Level4 extends Level{
 
 	public Level4() {
 		super();
-		music = "SPY2_SEWER.mp3";
 		
 		//Universal Death line
 		for(int i = 0; i < 32; i++) {

@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
+import gamejam.spy.controllers.SoundPlayer;
 import gamejam.spy.gameObjects.Level;
 import gamejam.spy.gameObjects.entities.Camera;
 import gamejam.spy.gameObjects.entities.Hat;
@@ -17,7 +18,7 @@ public class Level1 extends Level {
 	public Level1(){		
 		super();
 		this.backgroundImage = "SCENE1";
-		music = "SPY1_INTRO.mp3";
+		SoundPlayer.playSound("SPY1_INTRO.wav");
 		
 		//Universal Death line
 		for(int i = 0; i < 26; i++) {

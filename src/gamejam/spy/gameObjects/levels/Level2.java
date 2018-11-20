@@ -17,7 +17,6 @@ public class Level2 extends Level {
 	public Level2() {
 		super();
 		this.backgroundImage = "SCENE2";
-		music = "SPY1_INTRO.mp3";
 		
 		//Universal Death line
 		for(int i = 0; i < 26; i++) {
