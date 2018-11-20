@@ -11,40 +11,41 @@ import gamejam.spy.gameObjects.tiles.Tile;
 
 public class Level1 extends Level {
 	
-	public Level1(){
+	public Level1(){		
 		super();
+		this.backgroundImage = "SCENE1";
 		music = "SPY1_INTRO.mp3";
 		
 		// Walls
 		for(int i = 0; i < 24; i++) {
-			this.addTile(new Tile(), new Vector(-1, i));
-			this.addTile(new Tile(), new Vector(31, i));
+			this.addTile(new Tile().setTextureKey("box"), new Vector(-1, i));
+			this.addTile(new Tile().setTextureKey("box"), new Vector(31, i));
 		}
 		
 		
 		// Floor
 		for(int i = 0; i < 31; i++) {
-			addTile(new Tile(), new Vector(i, 24));
+			addTile(new Tile().setTextureKey("box"), new Vector(i, 24));
 		}
 		
 		// Ramp thing
-		addTile(new Tile(), new Vector(6, 23));
-		addTile(new Tile(), new Vector(7, 23));
-		addTile(new Tile(), new Vector(7, 22));
-		addTile(new Tile(), new Vector(8, 23));
-		addTile(new Tile(), new Vector(8, 22));
-		addTile(new Tile(), new Vector(8, 21));
+		addTile(new Tile().setTextureKey("box"), new Vector(6, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(7, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(7, 22));
+		addTile(new Tile().setTextureKey("box"), new Vector(8, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(8, 22));
+		addTile(new Tile().setTextureKey("box"), new Vector(8, 21));
 		
 		// Opposite Ramp thing
-		addTile(new Tile(), new Vector(18, 23));
-		addTile(new Tile(), new Vector(17, 23));
-		addTile(new Tile(), new Vector(17, 22));
-		addTile(new Tile(), new Vector(16, 23));
-		addTile(new Tile(), new Vector(16, 22));
-		addTile(new Tile(), new Vector(16, 21));
+		addTile(new Tile().setTextureKey("box"), new Vector(18, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(17, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(17, 22));
+		addTile(new Tile().setTextureKey("box"), new Vector(16, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(16, 22));
+		addTile(new Tile().setTextureKey("box"), new Vector(16, 21));
 		
 		// Level Exit
-		addTile(new LevelExit(), new Vector(30, 23));
+		addTile(new LevelExit().setTextureKey("box"), new Vector(30, 23));
 		
 		
 		//Entities
