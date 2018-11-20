@@ -7,7 +7,7 @@ import gamejam.spy.Vector;
 import gamejam.spy.controllers.TextureMap;
 
 public class Hat extends Entity{
-	public int hatID;
+	public Player.Hat hatID;
 	
 	public Hat() {
 		setDimensions(new Vector(16,16));
@@ -15,12 +15,10 @@ public class Hat extends Entity{
 	
 	public void onCollide() {
 		((Player) SpyGame.loadedLevel.entities.get(0)).hat = hatID;
-		((Player) SpyGame.loadedLevel.entities.get(0)).isBlueHat = true;
-		((Player) SpyGame.loadedLevel.entities.get(0)).isOriginal = false;
 		SpyGame.loadedLevel.deleteEntity(this);
 	}
 	
-	public Hat setHatID(int id) {
+	public Hat setHatID(Player.Hat id) {
 		hatID = id;
 		return this;
 	}

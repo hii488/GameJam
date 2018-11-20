@@ -81,7 +81,7 @@ public class Camera extends Entity {
 	}
 	
 	public void caught() {
-		if(((Player) SpyGame.loadedLevel.entities.get(0)).hat == -1) SpyGame.loadedLevel.restartLevel();
+		if(((Player) SpyGame.loadedLevel.entities.get(0)).hat == Player.Hat.ORIGINAL) SpyGame.loadedLevel.restartLevel();
 		else if(!lastPos.equals(new Vector(-1,-1))) {
 			if(!lastPos.equals(SpyGame.loadedLevel.entities.get(0).position)) {
 				SpyGame.loadedLevel.restartLevel();

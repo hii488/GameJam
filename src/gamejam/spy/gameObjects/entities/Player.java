@@ -31,7 +31,7 @@ public class Player extends Entity {
 
 	private double yv = 0;
 	
-	enum Hat{ORIGINAL, BLUE, SANTA, SCUBA;}
+	public enum Hat{ORIGINAL, BLUE, SANTA, SCUBA;}
 	Hat hat = Hat.ORIGINAL;
 	
 	boolean isRight = true;

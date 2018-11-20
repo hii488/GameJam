@@ -56,7 +56,7 @@ public class Level1 extends Level {
 		
 		Hat h = new Hat();
 		h.setPosition(13*32, 23*32);
-		h.setHatID(0);
+		h.setHatID(Player.Hat.BLUE);
 		h.setTextureKey("cap");
 		addEntity(h);
 	}
