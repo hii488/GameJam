@@ -103,7 +103,7 @@ public class SpyGame {
 			unprocessed += (now - then) / nsPerTick;
 			then = now;
 			while (unprocessed >= 1) {
-				if(!paused) tick();
+				tick();
 				
 				tick++;
 				unprocessed--;
