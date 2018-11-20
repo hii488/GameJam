@@ -31,9 +31,9 @@ public class Level5 extends Level{
 		for(int i = 0; i < 25; i++) addTile(new DeathTile().setTextureKey("SpikeL"), new Vector(i, 10));
 		for(int i = 24; i < 32; i++) addTile(new DeathTile().setTextureKey("SpikeL"), new Vector(i, 17));
 		
-		addTile(new Tile().setTextureKey("ice"), new Vector(0, 3));
-		addTile(new Tile().setTextureKey("ice"), new Vector(1, 3));
-		addTile(new Tile().setTextureKey("ice"), new Vector(2, 3));
+		addTile(new Tile().setTextureKey("ice"), new Vector(0, 8));
+		addTile(new Tile().setTextureKey("ice"), new Vector(1, 8));
+		addTile(new Tile().setTextureKey("ice"), new Vector(2, 8));
 		
 		// Top set
 		addTile(new Tile().setTextureKey("ice"), new Vector(3, 8));
@@ -52,16 +52,17 @@ public class Level5 extends Level{
 		addTile(new Tile().setTextureKey("ice"), new Vector(1, 20));
 		addTile(new Tile().setTextureKey("ice"), new Vector(6, 18));
 		addTile(new Tile().setTextureKey("ice"), new Vector(9, 20));
+		addTile(new Tile().setTextureKey("ice"), new Vector(13, 19));
 		addTile(new Tile().setTextureKey("ice"), new Vector(13, 18));
-		addTile(new Tile().setTextureKey("ice"), new Vector(13, 17));
 		addTile(new Tile().setTextureKey("ice"), new Vector(17, 20));
-		addTile(new Tile().setTextureKey("ice"), new Vector(20, 18));
+		addTile(new Tile().setTextureKey("ice"), new Vector(20, 20));
 		addTile(new Tile().setTextureKey("ice"), new Vector(22, 16));
 		addTile(new Tile().setTextureKey("ice"), new Vector(27, 16));
-		addTile(new Tile().setTextureKey("ice"), new Vector(27, 22));
-		addTile(new Tile().setTextureKey("ice"), new Vector(28, 22));
-		addTile(new Tile().setTextureKey("ice"), new Vector(29, 22));
+		addTile(new Tile().setTextureKey("ice"), new Vector(27, 24));
+		addTile(new Tile().setTextureKey("ice"), new Vector(28, 24));
+		addTile(new Tile().setTextureKey("ice"), new Vector(29, 24));
 		addTile(new Tile().setTextureKey("ice"), new Vector(23, 22));
+		addTile(new Tile().setTextureKey("ice"), new Vector(26, 24));
 		addTile(new Tile().setTextureKey("ice"), new Vector(19, 22));
 		
 		addTile(new LevelExit().setTextureKey("iceF"), new Vector(28, 21));

@@ -12,6 +12,7 @@ import gamejam.spy.gameObjects.entities.Player;
 import gamejam.spy.gameObjects.tiles.DeathTile;
 import gamejam.spy.gameObjects.tiles.LevelExit;
 import gamejam.spy.gameObjects.tiles.Tile;
+import gamejam.spy.gameObjects.tiles.TriangleTile;
 
 public class Level1 extends Level {
 	
@@ -52,6 +53,8 @@ public class Level1 extends Level {
 		addTile(new Tile().setTextureKey("box"), new Vector(16, 23));
 		addTile(new Tile().setTextureKey("box"), new Vector(16, 22));
 		addTile(new Tile().setTextureKey("box"), new Vector(16, 21));
+		addTile(new Tile().setTextureKey("box"), new Vector(14, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(15, 22));
 		
 		// Level Exit
 		addTile(new LevelExit().setTextureKey("box"), new Vector(30, 23));

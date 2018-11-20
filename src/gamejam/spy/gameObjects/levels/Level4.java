@@ -30,9 +30,9 @@ public class Level4 extends Level{
 			this.addTile(new Tile(), new Vector(31, i));
 		}
 		
-		addTile(new Tile().setTextureKey("box"), new Vector(0, 3));
-		addTile(new Tile().setTextureKey("box"), new Vector(1, 3));
-		addTile(new Tile().setTextureKey("box"), new Vector(2, 3));
+		addTile(new Tile().setTextureKey("box"), new Vector(0, 8));
+		addTile(new Tile().setTextureKey("box"), new Vector(1, 8));
+		addTile(new Tile().setTextureKey("box"), new Vector(2, 8));
 		
 		addTile(new SlimeDispenser().setChance(0.004f).setTextureKey("box"), new Vector(6, -1));
 		addTile(new SlimeDispenser().setChance(0.005f).setTextureKey("box"), new Vector(9, -1));

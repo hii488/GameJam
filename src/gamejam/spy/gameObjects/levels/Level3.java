@@ -57,7 +57,7 @@ public class Level3 extends Level {
 		
 		addTile(new Tile().setTextureKey("box"), new Vector(6, 9));
 		
-		addTile(new Tile().setTextureKey("box"), new Vector(11, 9));
+		addTile(new Tile().setTextureKey("box"), new Vector(11, 11));
 		
 		addTile(new Tile().setTextureKey("box"), new Vector(14, 8));
 		

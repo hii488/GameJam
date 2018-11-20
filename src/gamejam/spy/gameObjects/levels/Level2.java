@@ -65,7 +65,7 @@ public class Level2 extends Level {
 		addTile(new Tile().setTextureKey("box"), new Vector(21, 19));
 		addTile(new Tile().setTextureKey("box"), new Vector(22, 19));
 		
-		addTile(new Tile().setTextureKey("box"), new Vector(14, 24));
+		addTile(new Tile().setTextureKey("box"), new Vector(14, 22));
 		
 		// Spikes
 		for(int i = 0; i < 4; i++) {
@@ -88,7 +88,7 @@ public class Level2 extends Level {
 		addEntity(c);
 		
 		Hat h = new Hat();
-		h.setPosition(14*32, 23*32);
+		h.setPosition(14*32, 21*32);
 		h.setHatID(Player.Hat.BLUE);
 		h.setTextureKey("cap");
 		addEntity(h);

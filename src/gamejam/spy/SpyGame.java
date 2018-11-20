@@ -4,6 +4,10 @@ import gamejam.spy.controllers.KeyInput;
 import gamejam.spy.controllers.MouseInput;
 import gamejam.spy.controllers.TextureMap;
 import gamejam.spy.gameObjects.Level;
+import gamejam.spy.gameObjects.levels.Level3;
+import gamejam.spy.gameObjects.levels.Level4;
+import gamejam.spy.gameObjects.levels.Level5;
+import gamejam.spy.gameObjects.levels.Level6;
 import gamejam.spy.gameObjects.levels.MainMenu;
 import gamejam.spy.graphics.Window;
 
