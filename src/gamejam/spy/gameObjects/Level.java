@@ -97,7 +97,14 @@ public abstract class Level implements Renderable, Textured {
 		if(SpyGame.showingDeaths) {
 			Color c = g.getColor();
 			g.setColor(Color.RED);
-			g.drawString("Deaths: " + SpyGame.deaths, 5, 5);
+			g.drawString("Deaths: " + SpyGame.deaths, 5, 12);
+			g.setColor(c);
+		}
+		
+		if(!SpyGame.playMusic) {
+			Color c = g.getColor();
+			g.setColor(Color.RED);
+			g.drawString("Music off" + SpyGame.deaths, 40, 12);
 			g.setColor(c);
 		}
 	}
