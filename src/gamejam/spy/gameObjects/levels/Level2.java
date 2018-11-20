@@ -18,45 +18,45 @@ public class Level2 extends Level {
 		
 		// Walls
 		for(int i = 0; i < 24; i++) {
-			this.addTile(new Tile(), new Vector(-1, i));
-			this.addTile(new Tile(), new Vector(31, i));
+			this.addTile(new Tile().setTextureKey("box"), new Vector(-1, i));
+			this.addTile(new Tile().setTextureKey("box"), new Vector(31, i));
 		}
 		
 		
 		// Floor
 		for(int i = 0; i < 9; i++) {
-			addTile(new Tile(), new Vector(i, 24));
+			addTile(new Tile().setTextureKey("box"), new Vector(i, 24));
 		}
 		
 		// Death pit
 		for(int i = 7; i < 26; i++) {
-			addTile(new DeathTile(), new Vector(i, 25));
+			addTile(new DeathTile().setTextureKey("box"), new Vector(i, 25));
 		}
 		
 		// Ramp thing
-		addTile(new Tile(), new Vector(6, 23));
-		addTile(new Tile(), new Vector(7, 23));
-		addTile(new Tile(), new Vector(7, 22));
-		addTile(new Tile(), new Vector(7, 21));
-		addTile(new Tile(), new Vector(8, 23));
-		addTile(new Tile(), new Vector(8, 22));
-		addTile(new Tile(), new Vector(8, 21));
-		addTile(new Tile(), new Vector(8, 20));
-		addTile(new Tile(), new Vector(8, 19));
+		addTile(new Tile().setTextureKey("box"), new Vector(6, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(7, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(7, 22));
+		addTile(new Tile().setTextureKey("box"), new Vector(7, 21));
+		addTile(new Tile().setTextureKey("box"), new Vector(8, 23));
+		addTile(new Tile().setTextureKey("box"), new Vector(8, 22));
+		addTile(new Tile().setTextureKey("box"), new Vector(8, 21));
+		addTile(new Tile().setTextureKey("box"), new Vector(8, 20));
+		addTile(new Tile().setTextureKey("box"), new Vector(8, 19));
 		
 		// Middle ledges
-		addTile(new Tile(), new Vector(11, 19));
-		addTile(new Tile(), new Vector(12, 19));
+		addTile(new Tile().setTextureKey("box"), new Vector(11, 19));
+		addTile(new Tile().setTextureKey("box"), new Vector(12, 19));
 		
-		addTile(new Tile(), new Vector(15, 20));
-		addTile(new Tile(), new Vector(16, 20));
-		addTile(new Tile(), new Vector(17, 20));
-		addTile(new Tile(), new Vector(18, 20));
+		addTile(new Tile().setTextureKey("box"), new Vector(15, 20));
+		addTile(new Tile().setTextureKey("box"), new Vector(16, 20));
+		addTile(new Tile().setTextureKey("box"), new Vector(17, 20));
+		addTile(new Tile().setTextureKey("box"), new Vector(18, 20));
 
-		addTile(new Tile(), new Vector(21, 19));
-		addTile(new Tile(), new Vector(22, 19));
+		addTile(new Tile().setTextureKey("box"), new Vector(21, 19));
+		addTile(new Tile().setTextureKey("box"), new Vector(22, 19));
 		
-		addTile(new Tile(), new Vector(14, 24));
+		addTile(new Tile().setTextureKey("box"), new Vector(14, 24));
 		
 		// Spikes
 		for(int i = 0; i < 4; i++) {
