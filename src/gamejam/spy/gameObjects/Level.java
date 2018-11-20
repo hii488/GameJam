@@ -65,6 +65,14 @@ public abstract class Level implements Renderable, Textured {
 			SpyGame.paused = !SpyGame.paused;
 		}
 		
+		if(KeyInput.isDown(KeyEvent.VK_N)) {
+			nextLevel();
+		}
+		
+		if(KeyInput.isDown(KeyEvent.VK_R)) {
+			restartLevel();
+		}
+		
 		entities.removeAll(toDelete);
 		toDelete.clear();
 	}

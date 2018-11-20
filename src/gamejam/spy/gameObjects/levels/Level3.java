@@ -3,28 +3,75 @@ package gamejam.spy.gameObjects.levels;
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
 import gamejam.spy.gameObjects.Level;
+import gamejam.spy.gameObjects.entities.Player;
 import gamejam.spy.gameObjects.tiles.DeathTile;
+import gamejam.spy.gameObjects.tiles.SlimeDispenser;
 import gamejam.spy.gameObjects.tiles.Tile;
 
-public class Level3 extends Level{
-
+public class Level3 extends Level {
+	
 	public Level3() {
 		super();
 		music = "SPY2_SEWER.mp3";
 		
 		//Universal Death line
-		for(int i = 0; i < 26; i++) {
-			addTile(new DeathTile(), new Vector(i, 27));
+		for(int i = 0; i < 30; i++) {
+			addTile(new DeathTile().setTextureKey("slime"), new Vector(i, 24));
 		}
 		
 		// Walls
 		for(int i = 0; i < 24; i++) {
-			this.addTile(new Tile(), new Vector(-1, i));
-			this.addTile(new Tile(), new Vector(31, i));
+			this.addTile(new Tile().setTextureKey("box"), new Vector(-1, i));
+			this.addTile(new Tile().setTextureKey("box"), new Vector(31, i));
 		}
 		
+		
+		// Random floating platforms
+		addTile(new Tile().setTextureKey("box"), new Vector(0, 3));
+		addTile(new Tile().setTextureKey("box"), new Vector(1, 3));
+		addTile(new Tile().setTextureKey("box"), new Vector(2, 3));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(4, 5));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(8, 0));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(9, 2));
+		addTile(new Tile().setTextureKey("box"), new Vector(10, 2));
+		addTile(new Tile().setTextureKey("box"), new Vector(11, 3));
+		addTile(new Tile().setTextureKey("box"), new Vector(12, 2));
+		
+		//Slime dispenser
+		addTile(new SlimeDispenser().setTextureKey("box"), new Vector(9, 3));
+
+		addTile(new Tile().setTextureKey("box"), new Vector(12, 5));
+		addTile(new Tile().setTextureKey("box"), new Vector(13, 5));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(6, 9));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(11, 9));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(14, 8));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(15, 6));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(17, 7));
+		addTile(new Tile().setTextureKey("box"), new Vector(18, 7));
+		addTile(new Tile().setTextureKey("box"), new Vector(19, 7));
+		addTile(new Tile().setTextureKey("box"), new Vector(20, 7));
+		addTile(new Tile().setTextureKey("box"), new Vector(21, 7));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(22, 6));
+		addTile(new Tile().setTextureKey("box"), new Vector(23, 5));
+		
+		addTile(new Tile().setTextureKey("box"), new Vector(23, 3));
+		addTile(new Tile().setTextureKey("box"), new Vector(23, 2));
+		addTile(new Tile().setTextureKey("box"), new Vector(23, 1));
+		addTile(new Tile().setTextureKey("box"), new Vector(24, 0));
+			
+		
+		//Entities
+		addEntity(new Player());
 	}
-	
 	
 	@Override
 	public void restartLevel() {
@@ -34,8 +81,7 @@ public class Level3 extends Level{
 
 	@Override
 	public void nextLevel() {
-		// TODO Auto-generated method stub
-
+		SpyGame.loadedLevel = new Level4();
 	}
-	
+
 }
