@@ -25,7 +25,7 @@ public class Player extends Entity {
 	private int counter = 0;
 	private int currentTex = 0;
 	
-	public int hat = 0;
+	public int hat = -1;
 	
 	private double yv = 0;
 	
@@ -94,6 +94,7 @@ public class Player extends Entity {
 			lamina.resolvePen(t.getLamina());
 			if (lamina.isTouching(t.getLamina())) {
 				yv = 0;
+				t.onCollide();
 			}
 		}
 		position.setLocation(pos.getX()-4, pos.getY());

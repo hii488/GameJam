@@ -1,5 +1,11 @@
 package gamejam.spy.gameObjects.tiles;
 
-public class LevelExit {
+import gamejam.spy.SpyGame;
 
+public class LevelExit extends Tile{
+
+	public void onCollide() {
+		SpyGame.loadedLevel.nextLevel();
+	}
+	
 }

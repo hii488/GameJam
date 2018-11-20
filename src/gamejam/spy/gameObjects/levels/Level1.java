@@ -5,6 +5,7 @@ import gamejam.spy.Vector;
 import gamejam.spy.gameObjects.Level;
 import gamejam.spy.gameObjects.entities.Camera;
 import gamejam.spy.gameObjects.entities.Player;
+import gamejam.spy.gameObjects.tiles.LevelExit;
 import gamejam.spy.gameObjects.tiles.Tile;
 
 public class Level1 extends Level {
@@ -41,6 +42,8 @@ public class Level1 extends Level {
 		addTile(new Tile(), new Vector(16, 22));
 		addTile(new Tile(), new Vector(16, 21));
 		
+		// Level Exit
+		addTile(new LevelExit(), new Vector(30, 23));
 		
 		
 		//Entities

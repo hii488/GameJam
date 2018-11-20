@@ -20,20 +20,23 @@ public class Tile implements Renderable, Textured {
 	public Tile () {
 		
 	}
+	
 	public void setGrid(Grid g) {
 		parentGrid = g;
-
-
+		
+		
 		ArrayList<Vertex> vertices = new ArrayList<>();
 		vertices.add(new Vertex(0, parentGrid.tileSize));
 		vertices.add(new Vertex(parentGrid.tileSize, parentGrid.tileSize));
 		vertices.add(new Vertex(parentGrid.tileSize, 0));
 		vertices.add(new Vertex(0, 0));
-
+		
 		lamina = new Lamina2D(vertices, true);
 		lamina.addX(gridPosition.getX() * parentGrid.tileSize);
 		lamina.addY(gridPosition.getY() * parentGrid.tileSize);
 	}
+	
+	public void onCollide() {}
 	
 	public void setGridPosition(Vector position) {
 		gridPosition = position.copy();
@@ -53,8 +56,9 @@ public class Tile implements Renderable, Textured {
 		g.drawPolygon(lamina.getPolygon());
 	}
 
-	public void setTextureKey(String key) {
+	public Tile setTextureKey(String key) {
 		textureKey = key;
+		return this;
 	}
 	
 	@Override
