@@ -2,6 +2,7 @@ package gamejam.spy.gameObjects.levels;
 
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
+import gamejam.spy.controllers.SoundPlayer;
 import gamejam.spy.gameObjects.Level;
 import gamejam.spy.gameObjects.entities.Camera;
 import gamejam.spy.gameObjects.entities.Hat;
@@ -19,7 +20,7 @@ public class Level6 extends Level{
 	public Level6() {
 		super();
 
-	//	SoundPlayer.playSound("SPY4_CLUB.wav");
+		SoundPlayer.playSound("SPY4_CLUB.wav");
 		
 		// Universal Death line
 		for(int i = 0; i < 32; i++)	addTile(new DeathTile().setTextureKey("SpikeL"), new Vector(i, 25));
@@ -140,6 +141,7 @@ public class Level6 extends Level{
 	public void restartLevel() {
 		System.out.println("restarting");
 		SpyGame.loadedLevel = new Level6();
+		SpyGame.deaths++;
 	}
 
 	@Override

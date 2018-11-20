@@ -13,6 +13,8 @@ public class MainMenu extends Level {
 	public MainMenu() {
 		super();
 		
+		SpyGame.deaths = 0;
+		
 		this.canPause = false;
 		
 		System.out.println("in main menu");

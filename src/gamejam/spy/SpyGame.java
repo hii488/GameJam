@@ -12,6 +12,9 @@ public class SpyGame {
 	public static boolean running, paused, debug;
 	public static Level loadedLevel;
 	public static Window window;
+	public static int deaths = 0;
+	public static boolean showingDeaths = false;
+	public static boolean playMusic = true;
 	
 	public static void main(String[] args) {
 		window = new Window("Spy Game", 992, 800);

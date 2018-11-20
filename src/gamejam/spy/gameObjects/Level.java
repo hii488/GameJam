@@ -1,5 +1,6 @@
 package gamejam.spy.gameObjects;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
@@ -72,6 +73,14 @@ public abstract class Level implements Renderable, Textured {
 			restartLevel();
 		}
 		
+		if(KeyInput.isDown(KeyEvent.VK_S)) {
+			SpyGame.showingDeaths = !SpyGame.showingDeaths;
+		}
+		
+		if(KeyInput.isDown(KeyEvent.VK_M)) {
+			SpyGame.playMusic = !SpyGame.playMusic;
+		}
+		
 		entities.removeAll(toDelete);
 		toDelete.clear();
 	}
@@ -84,6 +93,13 @@ public abstract class Level implements Renderable, Textured {
 		g.drawImage(TextureMap.getTexture(backgroundImage), 0, 0, SpyGame.window.width, SpyGame.window.height, null);
 		tileGrid.grid.values().forEach(e-> e.render(g));
 		entities.forEach(e -> e.render(g));
+		
+		if(SpyGame.showingDeaths) {
+			Color c = g.getColor();
+			g.setColor(Color.RED);
+			g.drawString("Deaths: " + SpyGame.deaths, 5, 5);
+			g.setColor(c);
+		}
 	}
 
 	@Override

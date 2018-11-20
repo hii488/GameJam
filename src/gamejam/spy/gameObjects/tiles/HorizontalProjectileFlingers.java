@@ -20,7 +20,6 @@ public class HorizontalProjectileFlingers extends Tile{
 			slime.direction = direction;
 			slime.setTextureKey("present");
 			SpyGame.loadedLevel.addEntity(slime);
-			System.out.println("added");
 		}
 	}
 	
