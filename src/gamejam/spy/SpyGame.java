@@ -52,25 +52,25 @@ public class SpyGame {
 		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning7.png", "playerBlueHatRunning7");
 		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatJumping.png", "playerBlueHatJumping");
 		
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHat.png", "playerBlueHat");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning1.png", "playerBlueHatRunning1");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning2.png", "playerBlueHatRunning2");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning3.png", "playerBlueHatRunning3");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning4.png", "playerBlueHatRunning4");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning5.png", "playerBlueHatRunning5");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning6.png", "playerBlueHatRunning6");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning7.png", "playerBlueHatRunning7");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatJumping.png", "playerBlueHatJumping");
+		TextureMap.loadTexture("resources/textures/Player/SantaHat/PlayerSantaHat.png", "playerSantaHat");
+		TextureMap.loadTexture("resources/textures/Player/SantaHat/PlayerSantaHatRunning1.png", "playerSantaHatRunning1");
+		TextureMap.loadTexture("resources/textures/Player/SantaHat/PlayerSantaHatRunning2.png", "playerSantaHatRunning2");
+		TextureMap.loadTexture("resources/textures/Player/SantaHat/PlayerSantaHatRunning3.png", "playerSantaHatRunning3");
+		TextureMap.loadTexture("resources/textures/Player/SantaHat/PlayerSantaHatRunning4.png", "playerSantaHatRunning4");
+		TextureMap.loadTexture("resources/textures/Player/SantaHat/PlayerSantaHatRunning5.png", "playerSantaHatRunning5");
+		TextureMap.loadTexture("resources/textures/Player/SantaHat/PlayerSantaHatRunning6.png", "playerSantaHatRunning6");
+		TextureMap.loadTexture("resources/textures/Player/SantaHat/PlayerSantaHatRunning7.png", "playerSantaHatRunning7");
+		TextureMap.loadTexture("resources/textures/Player/SantaHat/PlayerSantaHatJumping.png", "playerSantaHatJumping");
 
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHat.png", "playerBlueHat");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning1.png", "playerBlueHatRunning1");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning2.png", "playerBlueHatRunning2");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning3.png", "playerBlueHatRunning3");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning4.png", "playerBlueHatRunning4");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning5.png", "playerBlueHatRunning5");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning6.png", "playerBlueHatRunning6");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatRunning7.png", "playerBlueHatRunning7");
-		TextureMap.loadTexture("resources/textures/Player/BlueHat/PlayerBlueHatJumping.png", "playerBlueHatJumping");
+		TextureMap.loadTexture("resources/textures/Player/ScubaMask/PlayerScubaMask.png", "playerScubaMask");
+		TextureMap.loadTexture("resources/textures/Player/ScubaMask/PlayerScubaMaskRunning1.png", "playerScubaMaskRunning1");
+		TextureMap.loadTexture("resources/textures/Player/ScubaMask/PlayerScubaMaskRunning2.png", "playerScubaMaskRunning2");
+		TextureMap.loadTexture("resources/textures/Player/ScubaMask/PlayerScubaMaskRunning3.png", "playerScubaMaskRunning3");
+		TextureMap.loadTexture("resources/textures/Player/ScubaMask/PlayerScubaMaskRunning4.png", "playerScubaMaskRunning4");
+		TextureMap.loadTexture("resources/textures/Player/ScubaMask/PlayerScubaMaskRunning5.png", "playerScubaMaskRunning5");
+		TextureMap.loadTexture("resources/textures/Player/ScubaMask/PlayerScubaMaskRunning6.png", "playerScubaMaskRunning6");
+		TextureMap.loadTexture("resources/textures/Player/ScubaMask/PlayerScubaMaskRunning7.png", "playerScubaMaskRunning7");
+		TextureMap.loadTexture("resources/textures/Player/ScubaMask/PlayerScubaMaskJumping.png", "playerScubaMaskJumping");
 		
 		TextureMap.loadTexture("resources/textures/slime.png", "slime");
 		TextureMap.loadTexture("resources/textures/ice.png", "ice");

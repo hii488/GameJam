@@ -19,23 +19,20 @@ public class Player extends Entity {
 	
 	public String[] textures = {"playerRunning1", "playerRunning2", "playerRunning3", "playerRunning4", "playerRunning5", "playerRunning6", "playerRunning7"};
 	public String[] textures2 = {"playerBlueHatRunning1", "playerBlueHatRunning2", "playerBlueHatRunning3", "playerBlueHatRunning4", "playerBlueHatRunning5", "playerBlueHatRunning6", "playerBlueHatRunning7"};
-	
-	public String[] idle = {"player", "playerBlueHat"};
+	public String[] textures3 = {"playerSantaHatRunning1", "playerSantaHatRunning2", "playerSantaHatRunning3", "playerSantaHatRunning4", "playerSantaHatRunning5", "playerSantaHatRunning6", "playerSantaHatRunning7"};
+	public String[] textures4 = {"playerScubaMaskRunning1", "playerScubaMaskRunning2", "playerScubaMaskRunning3", "playerScubaMaskRunning4", "playerScubaMaskRunning5", "playerScubaMaskRunning6", "playerScubaMaskRunning7"};
+	public String[] idle = {"player", "playerBlueHat", "playerSantaHat", "playerScubaMask"};
 
 	private Vertex pos;
 	private Lamina2D lamina;
 	
 	private int counter = 0;
 	private int currentTex = 0;
-	
-	public int hat = -1;
 
 	private double yv = 0;
 	
-	boolean isOriginal = false;
-	boolean isBlueHat = true;
-	boolean isSantaHat = false;
-	boolean isScubaMask = false;
+	enum Hat{ORIGINAL, BLUE, SANTA, SCUBA;}
+	Hat hat = Hat.ORIGINAL;
 	
 	boolean isRight = true;
 	boolean isJumping = false;
@@ -53,11 +50,16 @@ public class Player extends Entity {
 		
 		lamina = new Lamina2D(vertices, false);
 		
-		if(isOriginal) {
+		
+		switch(hat) {
+		case ORIGINAL:
 			this.setTextureKey(idle[0]);
-		}
-		if(isBlueHat) {
+		case BLUE:
 			this.setTextureKey(idle[1]);
+		case SANTA:
+			this.setTextureKey(idle[2]);
+		case SCUBA:
+			this.setTextureKey(idle[3]);
 		}
 	}
 	
@@ -83,11 +85,15 @@ public class Player extends Entity {
 			isMoving = true;
 			moveX(5);
 			if (counter > 3) {
-				if(isOriginal) {
+				switch(hat) {
+				case ORIGINAL:
 					this.setTextureKey(textures[currentTex]);
-				}
-				if(isBlueHat) {
+				case BLUE:
 					this.setTextureKey(textures2[currentTex]);
+				case SANTA:
+					this.setTextureKey(textures3[currentTex]);
+				case SCUBA:
+					this.setTextureKey(textures4[currentTex]);
 				}
 				counter -= 3;
 				currentTex = (currentTex + 1) % textures.length;
@@ -98,11 +104,15 @@ public class Player extends Entity {
 			isMoving = true;
 			moveX(-5);
 			if (counter > 3) {
-				if(isOriginal) {
+				switch(hat) {
+				case ORIGINAL:
 					this.setTextureKey(textures[currentTex]);
-				}
-				if(isBlueHat) {
+				case BLUE:
 					this.setTextureKey(textures2[currentTex]);
+				case SANTA:
+					this.setTextureKey(textures3[currentTex]);
+				case SCUBA:
+					this.setTextureKey(textures4[currentTex]);
 				}
 				counter -= 3;
 				currentTex = (currentTex + 1) % textures.length;
@@ -110,11 +120,15 @@ public class Player extends Entity {
 			}
 		} else {
 			if (!isJumping) {
-				if(isOriginal) {
+				switch(hat) {
+				case ORIGINAL:
 					this.setTextureKey(idle[0]);
-				}
-				if(isBlueHat) {
+				case BLUE:
 					this.setTextureKey(idle[1]);
+				case SANTA:
+					this.setTextureKey(idle[2]);
+				case SCUBA:
+					this.setTextureKey(idle[3]);
 				}
 			}
 			counter = 0;
@@ -124,11 +138,15 @@ public class Player extends Entity {
 		if ((KeyInput.isDown(KeyEvent.VK_W)  || KeyInput.isDown(KeyEvent.VK_UP))&& yv == 0) {
 			
 			if (! isMoving) {
-				if(isOriginal) {
+				switch(hat) {
+				case ORIGINAL:
 					this.setTextureKey("playerJumping");
-				}
-				if(isBlueHat) {
+				case BLUE:
 					this.setTextureKey("playerBlueHatJumping");
+				case SANTA:
+					this.setTextureKey("playerSantaHatJumping");
+				case SCUBA:
+					this.setTextureKey("playerScubaMaskJumping");
 				}
 			}
 			
