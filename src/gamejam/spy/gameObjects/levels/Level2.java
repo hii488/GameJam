@@ -16,6 +16,11 @@ public class Level2 extends Level {
 		super();
 		music = "SPY1_INTRO.mp3";
 		
+		//Universal Death line
+		for(int i = 0; i < 26; i++) {
+			addTile(new DeathTile(), new Vector(i, 27));
+		}
+		
 		// Walls
 		for(int i = 0; i < 24; i++) {
 			this.addTile(new Tile().setTextureKey("box"), new Vector(-1, i));

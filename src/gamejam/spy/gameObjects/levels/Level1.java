@@ -8,6 +8,7 @@ import gamejam.spy.gameObjects.Level;
 import gamejam.spy.gameObjects.entities.Camera;
 import gamejam.spy.gameObjects.entities.Hat;
 import gamejam.spy.gameObjects.entities.Player;
+import gamejam.spy.gameObjects.tiles.DeathTile;
 import gamejam.spy.gameObjects.tiles.LevelExit;
 import gamejam.spy.gameObjects.tiles.Tile;
 
@@ -17,6 +18,11 @@ public class Level1 extends Level {
 		super();
 		this.backgroundImage = "SCENE1";
 		music = "SPY1_INTRO.mp3";
+		
+		//Universal Death line
+		for(int i = 0; i < 26; i++) {
+			addTile(new DeathTile(), new Vector(i, 27));
+		}
 		
 		// Walls
 		for(int i = 0; i < 24; i++) {
