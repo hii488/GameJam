@@ -4,6 +4,7 @@ import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
 import gamejam.spy.gameObjects.Level;
 import gamejam.spy.gameObjects.entities.Camera;
+import gamejam.spy.gameObjects.entities.Hat;
 import gamejam.spy.gameObjects.entities.Player;
 import gamejam.spy.gameObjects.tiles.DeathTile;
 import gamejam.spy.gameObjects.tiles.LevelExit;
@@ -55,6 +56,8 @@ public class Level2 extends Level {
 		addTile(new Tile(), new Vector(21, 19));
 		addTile(new Tile(), new Vector(22, 19));
 		
+		addTile(new Tile(), new Vector(14, 24));
+		
 		// Spikes
 		for(int i = 0; i < 4; i++) {
 			addTile(new DeathTile().setTextureKey("slime"), new Vector(24, 21 +i));
@@ -73,6 +76,12 @@ public class Level2 extends Level {
 		c.width = 20;
 		
 		addEntity(c);
+		
+		Hat h = new Hat();
+		h.setPosition(14*32, 23*32);
+		h.setHatID(Player.Hat.BLUE);
+		h.setTextureKey("cap");
+		addEntity(h);
 		
 	}
 	
