@@ -88,8 +88,7 @@ public class Level4 extends Level{
 
 	@Override
 	public void nextLevel() {
-		// TODO Auto-generated method stub
-
+		SpyGame.loadedLevel = new Level5();
 	}
 	
 }

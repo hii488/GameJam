@@ -22,6 +22,8 @@ public class Camera extends Entity {
 	public Vector lastPos;
 	public Color colour;
 	
+	private boolean powered = true;
+	
 	public Camera() {
 		textureKey = "cameraGreen";
 		direction = 0;
@@ -39,47 +41,54 @@ public class Camera extends Entity {
 	}
 	
 	public void tick() {
-		// Rotating the camera
-		switch(movementState) {
-		case 0:
-			counter++;
-			if(counter > 10) movementState++;
-			break;
-		case 1:
-			direction += cameraSpeed;
-			if(direction >=  maxRot) {
-				movementState++;
-				counter = 0;
+		if(powered) {
+			// Rotating the camera
+			switch(movementState) {
+			case 0:
+				counter++;
+				if(counter > 10) movementState++;
+				break;
+			case 1:
+				direction += cameraSpeed;
+				if(direction >=  maxRot) {
+					movementState++;
+					counter = 0;
+				}
+				break;
+			case 2:
+				counter++;
+				if(counter > 10) movementState++;
+				break;
+			case 3:
+				direction -= cameraSpeed;
+				if(direction <=  minRot) {
+					movementState = 0;
+					counter = 0;
+				}
+				break;
 			}
-			break;
-		case 2:
-			counter++;
-			if(counter > 10) movementState++;
-			break;
-		case 3:
-			direction -= cameraSpeed;
-			if(direction <=  minRot) {
-				movementState = 0;
-				counter = 0;
-			}
-			break;
+			
+			facing = new Vector(-1,1).scale(dist).rotateDeg(direction);
+			upper = facing.copy().rotateDeg(width*0.8);
+			lower = facing.copy().rotateDeg(-width*0.8);
+			
+			Vector playerDirection1 = SpyGame.loadedLevel.entities.get(0).position.difference(position);
+			Vector playerDirection2 = SpyGame.loadedLevel.entities.get(0).position.copy().translate(20, 30).difference(position); // Other corner
+			
+			double upperAngle = Math.atan(upper.getY()/upper.getX()) + (upper.getIX() <= 0 ? Math.PI : 0);
+			double lowerAngle = Math.atan(lower.getY()/lower.getX()) + (lower.getIX() <= 0 ? Math.PI : 0);
+			double playerAngle1 = Math.atan(playerDirection1.getY()/playerDirection1.getX()) + (playerDirection1.getIX() <= 0 ? Math.PI : 0);
+			double playerAngle2 = Math.atan(playerDirection2.getY()/playerDirection2.getX()) + (playerDirection2.getIX() <= 0 ? Math.PI : 0);
+			
+			if     (playerAngle1 < upperAngle && playerAngle1 > lowerAngle && playerDirection1.magnitude() < dist) caught();
+			else if(playerAngle2 < upperAngle && playerAngle2 > lowerAngle && playerDirection2.magnitude() < dist) caught();
+			else lastPos.setLocation(-1, -1);
 		}
-		
-		facing = new Vector(-1,1).scale(dist).rotateDeg(direction);
-		upper = facing.copy().rotateDeg(width*0.8);
-		lower = facing.copy().rotateDeg(-width*0.8);
-		
-		Vector playerDirection1 = SpyGame.loadedLevel.entities.get(0).position.difference(position);
-		Vector playerDirection2 = SpyGame.loadedLevel.entities.get(0).position.copy().translate(20, 30).difference(position); // Other corner
-		
-		double upperAngle = Math.atan(upper.getY()/upper.getX()) + (upper.getIX() <= 0 ? Math.PI : 0);
-		double lowerAngle = Math.atan(lower.getY()/lower.getX()) + (lower.getIX() <= 0 ? Math.PI : 0);
-		double playerAngle1 = Math.atan(playerDirection1.getY()/playerDirection1.getX()) + (playerDirection1.getIX() <= 0 ? Math.PI : 0);
-		double playerAngle2 = Math.atan(playerDirection2.getY()/playerDirection2.getX()) + (playerDirection2.getIX() <= 0 ? Math.PI : 0);
-		
-		if     (playerAngle1 < upperAngle && playerAngle1 > lowerAngle && playerDirection1.magnitude() < dist) caught();
-		else if(playerAngle2 < upperAngle && playerAngle2 > lowerAngle && playerDirection2.magnitude() < dist) caught();
-		else lastPos.setLocation(-1, -1);
+	}
+	
+	public void turnOff() {
+		powered = false;
+		setTextureKey("cameraRed");
 	}
 	
 	public void caught() {
@@ -105,12 +114,13 @@ public class Camera extends Entity {
 
 		// Drawing the rotated image at the required drawing locations
 		g.drawImage(op.filter(image, null), position.getIX(), position.getIY(), null);
-		
-		Color c = g.getColor();
-		g.setColor(colour);
-		g.drawLine(position.getIX() + image.getWidth()/2, position.getIY() + image.getHeight()/2, position.getIX() + image.getWidth()/2 + (int) (upper.getIX()*0.9), position.getIY() + image.getHeight()/2 + (int) (upper.getIY()*0.9));
-		g.drawLine(position.getIX() + image.getWidth()/2, position.getIY() + image.getHeight()/2, position.getIX() + image.getWidth()/2 + (int) (lower.getIX()*0.9), position.getIY() + image.getHeight()/2 + (int) (lower.getIY()*0.9));
-		g.setColor(c);
+		if(powered) {
+			Color c = g.getColor();
+			g.setColor(colour);
+			g.drawLine(position.getIX() + image.getWidth()/2, position.getIY() + image.getHeight()/2, position.getIX() + image.getWidth()/2 + (int) (upper.getIX()*0.9), position.getIY() + image.getHeight()/2 + (int) (upper.getIY()*0.9));
+			g.drawLine(position.getIX() + image.getWidth()/2, position.getIY() + image.getHeight()/2, position.getIX() + image.getWidth()/2 + (int) (lower.getIX()*0.9), position.getIY() + image.getHeight()/2 + (int) (lower.getIY()*0.9));
+			g.setColor(c);
+		}
 	}
 	
 	
