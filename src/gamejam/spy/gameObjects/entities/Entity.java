@@ -47,6 +47,7 @@ public class Entity implements Renderable, Textured {
 
 	public Entity setPosition(int x, int y) {
 		position.setLocation(x,y);
+		lamina.translate(new Vertex(x,y));
 		return this;
 	}
 	

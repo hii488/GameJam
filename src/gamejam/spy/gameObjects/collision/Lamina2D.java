@@ -1,15 +1,11 @@
 package gamejam.spy.gameObjects.collision;
 
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.util.ArrayList;
 
 public class Lamina2D {
 	private ArrayList<Vertex> vertices = new ArrayList<Vertex>();
-	private double
-	xDist,
-	yDist;
 	public boolean
 	canMove = false,
 	immovable;

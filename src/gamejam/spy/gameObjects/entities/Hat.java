@@ -15,6 +15,8 @@ public class Hat extends Entity{
 	
 	public void onCollide() {
 		((Player) SpyGame.loadedLevel.entities.get(0)).hat = hatID;
+		((Player) SpyGame.loadedLevel.entities.get(0)).isBlueHat = true;
+		((Player) SpyGame.loadedLevel.entities.get(0)).isOriginal = false;
 		SpyGame.loadedLevel.deleteEntity(this);
 	}
 	
