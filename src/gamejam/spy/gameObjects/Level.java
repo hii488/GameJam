@@ -17,6 +17,7 @@ public abstract class Level implements Renderable, Textured {
 	
 	public Grid tileGrid;
 	public ArrayList<Entity> entities;
+	public ArrayList<Entity> toDelete;
 	public String backgroundImage = "defaultBackgroundImage";
 	public String music;
 	public boolean canPause = true;
@@ -25,6 +26,7 @@ public abstract class Level implements Renderable, Textured {
 		tileGrid = new Grid();
 		tileGrid.tileSize = 32;
 		entities = new ArrayList<Entity>();	
+		toDelete = new ArrayList<Entity>();
 	}
 	
 	public Level(String backgroundImage) {
@@ -39,6 +41,10 @@ public abstract class Level implements Renderable, Textured {
 		tileGrid.addTile(t);
 	}
 	
+	public void deleteEntity(Entity e) {
+		toDelete.add(e);
+	}
+	
 	public void addTile(Tile t, Vector v) {
 		t.setGridPosition(v);
 		addTile(t);
@@ -51,6 +57,9 @@ public abstract class Level implements Renderable, Textured {
 		if(KeyInput.isDown(KeyEvent.VK_P)) {
 			SpyGame.paused = true;
 		}
+		
+		entities.removeAll(toDelete);
+		toDelete.clear();
 	}
 	
 	public abstract void restartLevel();

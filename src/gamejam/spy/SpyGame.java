@@ -46,6 +46,9 @@ public class SpyGame {
 		TextureMap.loadTexture("resources/textures/camera-red.png", "cameraRed");
 		TextureMap.loadTexture("resources/textures/industrial.v2.png", "industrial");
 		TextureMap.loadTexture("resources/textures/skill-desc_0003_bg-1.png", "background1");
+		TextureMap.loadTexture("resources/textures/hats/cap.png", "cap");
+		TextureMap.loadTexture("resources/textures/hats/scuba mask.png", "scuba");
+		TextureMap.loadTexture("resources/textures/hats/xmas-hat.png", "xmas");
 	}
 	
 	

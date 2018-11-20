@@ -1,14 +1,12 @@
 package gamejam.spy.gameObjects.entities;
 
 import java.awt.Graphics;
-import java.awt.event.KeyEvent;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
-import gamejam.spy.controllers.KeyInput;
 import gamejam.spy.controllers.TextureMap;
 
 public class Camera extends Entity {

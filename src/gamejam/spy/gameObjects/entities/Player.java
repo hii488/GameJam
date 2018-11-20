@@ -54,10 +54,11 @@ public class Player extends Entity {
 		lamina.addY(y);
 	}
 	
-	public void setPosition(int x, int y) {
+	public Player setPosition(int x, int y) {
 		position.setLocation(x,y);
 		pos.setX(x);
 		pos.setY(y);
+		return this;
 	}
 	
 	public void tick() {
@@ -89,6 +90,8 @@ public class Player extends Entity {
 		}
 		yv -= 0.9;
 		moveY(-yv);
+		
+		// Resolve tile collision.
 		Collection<Tile> tiles = SpyGame.loadedLevel.tileGrid.grid.values();
 		for (Tile t : tiles) {
 			lamina.resolvePen(t.getLamina());
@@ -97,6 +100,19 @@ public class Player extends Entity {
 				t.onCollide();
 			}
 		}
+		
+		// Resolve entity collision
+		Collection<Entity> entities = SpyGame.loadedLevel.entities;
+		for (Entity t : entities) {
+			// Only do collision if the entity is solid.
+			if(t.isSolid()) lamina.resolvePen(t.getLamina());
+			
+			if (lamina.isTouching(t.getLamina())) {
+				yv = 0;
+				t.onCollide();
+			}
+		}
+		
 		position.setLocation(pos.getX()-4, pos.getY());
 		counter += 1;
 	}

@@ -4,6 +4,7 @@ import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
 import gamejam.spy.gameObjects.Level;
 import gamejam.spy.gameObjects.entities.Camera;
+import gamejam.spy.gameObjects.entities.Hat;
 import gamejam.spy.gameObjects.entities.Player;
 import gamejam.spy.gameObjects.tiles.LevelExit;
 import gamejam.spy.gameObjects.tiles.Tile;
@@ -52,6 +53,11 @@ public class Level1 extends Level {
 		Camera c = new Camera();
 		c.setPosition(24 * 32,  18 * 32);
 		addEntity(c);
+		
+		Hat h = new Hat();
+		h.setHatID(0);
+		h.setTextureKey("cap");
+		addEntity(h);
 	}
 	
 	public void restartLevel() {

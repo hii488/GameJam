@@ -1,6 +1,5 @@
 package gamejam.spy.gameObjects.tiles;
 
-import java.awt.Graphics;
 import java.util.ArrayList;
 
 import gamejam.spy.Vector;
@@ -54,8 +53,9 @@ public class TriangleTile extends Tile implements Renderable, Textured {
 		
 	}
 
-	public void setTextureKey(String key) {
+	public TriangleTile setTextureKey(String key) {
 		textureKey = key;
+		return this;
 	}
 	
 	@Override
