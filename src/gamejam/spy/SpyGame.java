@@ -79,6 +79,7 @@ public class SpyGame {
 		TextureMap.loadTexture("resources/textures/SpikeL.png", "SpikeL");
 		TextureMap.loadTexture("resources/textures/SpikeR.png", "SpikeR");
 		
+		TextureMap.loadTexture("resources/textures/SCENE3.png", "SCENE3");
 		TextureMap.loadTexture("resources/textures/Drop.png", "Drop");
 		
 		

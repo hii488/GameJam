@@ -15,6 +15,7 @@ public class Level3 extends Level {
 	
 	public Level3() {
 		super();
+		this.backgroundImage = "SCENE3";
 
 	//	SoundPlayer.playSound("SPY2_SEWER.wav");
 		
