@@ -1,5 +1,7 @@
 package gamejam.spy.gameObjects.levels;
 
+import java.awt.Color;
+
 import gamejam.spy.SpyGame;
 import gamejam.spy.Vector;
 import gamejam.spy.gameObjects.Level;
@@ -53,10 +55,11 @@ public class Level1 extends Level {
 		
 		Camera c = new Camera();
 		c.setPosition(24 * 32,  18 * 32);
+		c.colour = Color.yellow;
 		addEntity(c);
 		
 		Hat h = new Hat();
-		h.setPosition(13*32, 23*32);
+		h.setPosition(12*32, 23*32);
 		h.setHatID(Player.Hat.BLUE);
 		h.setTextureKey("cap");
 		addEntity(h);

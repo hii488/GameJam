@@ -1,5 +1,6 @@
 package gamejam.spy.gameObjects.entities;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.geom.AffineTransform;
 import java.awt.image.AffineTransformOp;
@@ -19,6 +20,7 @@ public class Camera extends Entity {
 	public int width, dist;
 	public Vector facing, upper, lower;
 	public Vector lastPos;
+	public Color colour;
 	
 	public Camera() {
 		textureKey = "cameraGreen";
@@ -103,8 +105,12 @@ public class Camera extends Entity {
 
 		// Drawing the rotated image at the required drawing locations
 		g.drawImage(op.filter(image, null), position.getIX(), position.getIY(), null);
+		
+		Color c = g.getColor();
+		g.setColor(colour);
 		g.drawLine(position.getIX() + image.getWidth()/2, position.getIY() + image.getHeight()/2, position.getIX() + image.getWidth()/2 + (int) (upper.getIX()*0.9), position.getIY() + image.getHeight()/2 + (int) (upper.getIY()*0.9));
 		g.drawLine(position.getIX() + image.getWidth()/2, position.getIY() + image.getHeight()/2, position.getIX() + image.getWidth()/2 + (int) (lower.getIX()*0.9), position.getIY() + image.getHeight()/2 + (int) (lower.getIY()*0.9));
+		g.setColor(c);
 	}
 	
 	
